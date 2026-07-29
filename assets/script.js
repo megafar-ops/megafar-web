@@ -35,117 +35,53 @@
     return field[currentLang()] || field.tr;
   }
 
-  // PRODUCTS icindeki frontImage/backImages/video degerleri "products/..."
-  // seklinde (assets/ ONCESIZ) tutulur; gercek URL'e ASSETS_BASE ile cevrilir.
+  // frontImage/backImages/video degerleri ya "/assets/..." ile baslayan
+  // mutlak bir yol (Decap CMS'in yazdigi) ya da "products/..." gibi
+  // ASSETS_BASE'e gore bagil bir yoldur; resolveAsset ikisini de destekler.
   function resolveAsset(path) {
-    return path ? ASSETS_BASE + path : path;
+    if (!path) return path;
+    if (/^(https?:)?\//.test(path)) return path;
+    return ASSETS_BASE + path;
   }
 
-  // ---- DEMO ürün verisi (onay sonrası 60 ürünle değiştirilecek) ----
-  var PRODUCTS = [
-    {
-      id: "mf-ms-201",
-      code: "MF-MS-201",
-      name: { tr: "Mini Sinyal Lamba Çift Renk", en: "Mini Dual-Color Signal Lamp", ar: "مصباح إشارة صغير ثنائي اللون" },
-      price: 380,
-      currency: "TRY",
-      accent: "red",
-      isNew: true,
-      frontImage: "products/ph-6-front.svg",
-      backImages: ["products/ph-6-back-a.svg"],
-      video: null,
-      desc: {
-        tr: "Kompakt gövde, çift renk sinyal çıkışı. Kalıptan seri üretim.",
-        en: "Compact housing, dual-color signal output. Mass-produced from our own mold.",
-        ar: "هيكل مدمج بمخرج إشارة ثنائي اللون. إنتاج متسلسل من قالبنا الخاص."
-      }
-    },
-    {
-      id: "mf-lf-001",
-      code: "MF-LF-001",
-      name: { tr: "LED Çubuk Far Seti 120W", en: "LED Light Bar Kit 120W", ar: "طقم قضيب إضاءة LED بقوة 120 واط" },
-      price: 1450,
-      currency: "TRY",
-      accent: "amber",
-      isNew: false,
-      frontImage: "products/ph-1-front.svg",
-      backImages: ["products/ph-1-back-a.svg", "products/ph-1-back-b.svg"],
-      video: "products/demo-video-not-found.mp4",
-      desc: {
-        tr: "Yüksek çıkışlı LED çubuk far, tam su geçirmez gövde ve amber çakar modu.",
-        en: "High-output LED light bar, fully waterproof housing with amber strobe mode.",
-        ar: "قضيب إضاءة LED عالي الإخراج، هيكل مقاوم للماء بالكامل ووضع وميض كهرماني."
-      }
-    },
-    {
-      id: "mf-st-014",
-      code: "MF-ST-014",
-      name: { tr: "Stop Lambası Seti (Sinyal Kırmızı)", en: "Brake Light Set (Signal Red)", ar: "طقم مصباح المكابح (أحمر الإشارة)" },
-      price: 620,
-      currency: "TRY",
-      accent: "red",
-      isNew: false,
-      frontImage: "products/ph-2-front.svg",
-      backImages: ["products/ph-2-back-a.svg", "products/ph-2-back-b.svg"],
-      video: null,
-      desc: {
-        tr: "Orijinal kalıptan üretim stop lambası, direkt takım uyumlu montaj.",
-        en: "Brake lamp made from our original mold, direct-fit installation.",
-        ar: "مصباح توقف مصنوع من قالبنا الأصلي، تركيب مباشر ومتوافق."
-      }
-    },
-    {
-      id: "mf-sf-027",
-      code: "MF-SF-027",
-      name: { tr: "Sis Farı Kalıp Seti", en: "Fog Light Mold Set", ar: "طقم قالب مصباح الضباب" },
-      price: 540,
-      currency: "TRY",
-      accent: "white",
-      isNew: false,
-      frontImage: "products/ph-3-front.svg",
-      backImages: ["products/ph-3-back-a.svg"],
-      video: null,
-      desc: {
-        tr: "Kendi kalıbımızdan çıkan sis farı gövdesi, yüksek darbe dayanımı.",
-        en: "Fog light housing from our own mold, high impact resistance.",
-        ar: "هيكل مصباح الضباب من قالبنا الخاص، مقاومة عالية للصدمات."
-      }
-    },
-    {
-      id: "mf-or-108",
-      code: "MF-OR-108",
-      name: { tr: "Off-Road LED Bar 300W", en: "Off-Road LED Bar 300W", ar: "قضيب LED للطرق الوعرة 300 واط" },
-      price: 2890,
-      currency: "TRY",
-      accent: "amber",
-      isNew: false,
-      frontImage: "products/ph-4-front.svg",
-      backImages: ["products/ph-4-back-a.svg", "products/ph-4-back-b.svg"],
-      video: null,
-      desc: {
-        tr: "Ağır hizmet tipi off-road LED bar, tam alüminyum gövde.",
-        en: "Heavy-duty off-road LED bar, full aluminum housing.",
-        ar: "قضيب LED للطرق الوعرة للخدمة الشاقة، هيكل ألومنيوم بالكامل."
-      }
-    },
-    {
-      id: "mf-xn-033",
-      code: "MF-XN-033",
-      name: { tr: "Xenon Far Kiti H7", en: "Xenon Headlight Kit H7", ar: "طقم مصباح زينون H7" },
-      price: 990,
-      currency: "TRY",
-      accent: "white",
-      isNew: false,
-      frontImage: "products/ph-5-front.svg",
-      backImages: ["products/ph-5-back-a.svg", "products/ph-5-back-b.svg"],
-      video: null,
-      desc: {
-        tr: "Yüksek ışık şiddeti, uzun ömürlü xenon far kiti, kolay montaj.",
-        en: "High light intensity, long-lasting xenon headlight kit, easy installation.",
-        ar: "شدة إضاءة عالية، طقم مصباح زينون طويل الأمد، تركيب سهل."
-      }
-    }
-  ];
+  // Urun katalogu artik data/products.json icinde tutulur ve Decap CMS
+  // (backend: github) tarafindan yonetilir; sayfa yuklenirken fetch edilir.
+  var PRODUCTS = [];
+
+  function normalizeProduct(raw) {
+    return {
+      id: raw.id || raw.code,
+      code: raw.code || "",
+      name: { tr: raw.name_tr || "", en: raw.name_en || raw.name_tr || "", ar: raw.name_ar || raw.name_tr || "" },
+      price: raw.price,
+      currency: raw.currency || "TRY",
+      accent: raw.accent || "white",
+      isNew: !!raw.is_new,
+      frontImage: raw.front_image,
+      backImages: raw.back_images || [],
+      video: raw.video || null,
+      desc: { tr: raw.desc_tr || "", en: raw.desc_en || raw.desc_tr || "", ar: raw.desc_ar || raw.desc_tr || "" }
+    };
+  }
+
+  function loadProducts() {
+    return fetch("/data/products.json", { cache: "no-cache" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("products.json HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var list = (data && data.products) || [];
+        list.sort(function (a, b) {
+          return (a.sort_order || 0) - (b.sort_order || 0);
+        });
+        PRODUCTS = list.map(normalizeProduct);
+      })
+      .catch(function (err) {
+        console.error("Urun verisi yuklenemedi:", err);
+        PRODUCTS = [];
+      });
+  }
 
   function buildWaLink(productName, productCode) {
     var text = "Merhaba, " + productName + " (" + productCode + ") ürünü hakkında bilgi almak istiyorum.";
@@ -391,7 +327,9 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderGrid();
+    if (document.querySelector("[data-product-grid]")) {
+      loadProducts().then(renderGrid);
+    }
     bindLightboxEvents();
     bindFloatingWa();
     bindNavToggle();
