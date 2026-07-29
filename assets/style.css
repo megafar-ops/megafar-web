@@ -309,6 +309,7 @@ h1, h2, h3, h4 {
 
 .card {
   position: relative;
+  min-width: 0;
   background: var(--bg-surface);
   border: 1px solid var(--line);
   padding: 10px;
@@ -441,9 +442,11 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 6px;
   margin-top: 6px;
   padding: 9px 10px;
+  min-width: 0;
   background: #25D366;
   color: #08210F;
   font-family: var(--font-body);
@@ -459,6 +462,7 @@ h1, h2, h3, h4 {
 .btn-wa:hover { filter: brightness(1.08); }
 
 .btn-wa svg { width: 16px; height: 16px; flex-shrink: 0; }
+.btn-wa span { min-width: 0; }
 
 /* ---------------------------------------------------------
    Floating WhatsApp button (fixed, bottom right)
