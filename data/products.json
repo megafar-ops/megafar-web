@@ -1,29 +1,6 @@
 {
   "products": [
     {
-      "id": "mf-lf-001",
-      "code": "MF-LF-001",
-      "name_tr": "LED Çubuk Far Seti 120W",
-      "name_en": "LED Light Bar Kit 120W",
-      "name_ar": "طقم قضيب إضاءة LED بقوة 120 واط",
-      "description_tr": "Yüksek çıkışlı LED çubuk far, tam su geçirmez gövde ve amber çakar modu.",
-      "description_en": "High-output LED light bar, fully waterproof housing with amber strobe mode.",
-      "description_ar": "قضيب إضاءة LED عالي الإخراج، هيكل مقاوم للماء بالكامل ووضع وميض كهرماني.",
-      "price": 1450,
-      "currency": "TRY",
-      "accent": "amber",
-      "is_new": false,
-      "tag": "",
-      "front_image": "/assets/products/ph-1-front.svg",
-      "back_images": [
-        "/assets/products/ph-1-back-a.svg",
-        "/assets/products/ph-1-back-b.svg"
-      ],
-      "video": "/assets/products/demo-video-not-found.mp4",
-      "sort_order": 2,
-      "created_at": "2026-07-25T09:00:00.000Z"
-    },
-    {
       "id": "mf-st-014",
       "code": "MF-ST-014",
       "name_tr": "Stop Lambası Seti (Sinyal Kırmızı)",
