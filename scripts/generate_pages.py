@@ -6,11 +6,16 @@ uretir, siteye hicbir calisma-zamani bagimliligi eklemez. Urunler/
 icerikler degistiginde bu script tekrar calistirilir, sonra dosyalar
 oldugu gibi (npm/node olmadan) sunucuya konur.
 """
+import html
+import json
 import os
+import urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 WA_NUMBER = "905343554217"
+SITE_ORIGIN = "https://megafar-web.vercel.app"
+LANG_FALLBACK_ORDER = ["tr", "en", "ar"]
 
 PAGE_PATHS = {
     "home": {"tr": "/index.html", "en": "/en/index.html", "ar": "/ar/index.html"},
@@ -106,8 +111,132 @@ ICON_SUN = '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="curren
 
 def wa_href(lang):
     text = T[lang]["wa_float_message"]
-    import urllib.parse
     return "https://wa.me/" + WA_NUMBER + "?text=" + urllib.parse.quote(text)
+
+
+def esc(s):
+    return html.escape(s or "", quote=True)
+
+
+def abs_url(path):
+    if not path:
+        return None
+    if path.startswith("http://") or path.startswith("https://"):
+        return path
+    return SITE_ORIGIN + path
+
+
+def load_products():
+    path = os.path.join(ROOT, "data", "products.json")
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    products = data.get("products", [])
+    return sorted(products, key=lambda p: p.get("sort_order") or 0)
+
+
+def pick_lang(product, base, lang):
+    value = product.get(base + "_" + lang)
+    if value:
+        return value
+    for lg in LANG_FALLBACK_ORDER:
+        v = product.get(base + "_" + lg)
+        if v:
+            return v
+    return ""
+
+
+def format_price_tr(price, currency):
+    if price is None:
+        return ""
+    symbol = "₺" if (not currency or currency == "TRY") else currency
+    value = price
+    if isinstance(value, float) and value.is_integer():
+        value = int(value)
+    if isinstance(value, int):
+        formatted = "{:,}".format(value).replace(",", ".")
+    else:
+        whole = int(value)
+        frac = int(round((value - whole) * 100))
+        formatted = "{:,}".format(whole).replace(",", ".") + "," + "{:02d}".format(frac)
+    return symbol + formatted
+
+
+def wa_product_link(name, code):
+    text = "Merhaba, " + name + " (" + code + ") ürünü hakkında bilgi almak istiyorum."
+    return "https://wa.me/" + WA_NUMBER + "?text=" + urllib.parse.quote(text)
+
+
+def product_card_html(product, index, lang):
+    t = T[lang]
+    name = pick_lang(product, "name", lang)
+    code = product.get("code") or ""
+    accent = product.get("accent") or "white"
+    is_new = bool(product.get("is_new"))
+    front_image = abs_url(product.get("front_image")) or ""
+    price_html = format_price_tr(product.get("price"), product.get("currency"))
+    wa = wa_product_link(name, code)
+
+    badge = ('<span class="card__badge" data-i18n-badge>%s</span>' % esc(t["new_badge"])) if is_new else ""
+
+    return '''      <li class="card" data-accent="%(accent)s" data-index="%(index)s" tabindex="0" role="button" aria-label="%(name)s">
+        <span class="card__corner card__corner--tl"></span>
+        <span class="card__corner card__corner--tr"></span>
+        <span class="card__corner card__corner--bl"></span>
+        <span class="card__corner card__corner--br"></span>
+        %(badge)s
+        <div class="card__media">
+          <img src="%(front_image)s" alt="%(name)s" loading="lazy">
+          <span class="card__zoom-hint">%(zoom_hint)s</span>
+        </div>
+        <div class="card__body">
+          <p class="card__name">%(name)s</p>
+          <p class="card__code mono">%(code)s</p>
+          <p class="card__price mono">%(price)s</p>
+          <a class="btn-wa" href="%(wa)s" target="_blank" rel="noopener">%(icon_wa)s
+            <span>%(ask_whatsapp)s</span></a>
+        </div>
+      </li>''' % {
+        "accent": esc(accent),
+        "index": index,
+        "name": esc(name),
+        "badge": badge,
+        "front_image": esc(front_image),
+        "zoom_hint": esc(t["zoom_hint"]),
+        "code": esc(code),
+        "price": esc(price_html),
+        "wa": esc(wa),
+        "icon_wa": ICON_WA,
+        "ask_whatsapp": esc(t["ask_whatsapp"]),
+    }
+
+
+def product_jsonld_html(product, lang):
+    name = pick_lang(product, "name", lang)
+    desc = pick_lang(product, "description", lang)
+    images = []
+    if product.get("front_image"):
+        images.append(abs_url(product["front_image"]))
+    for img in (product.get("back_images") or []):
+        u = abs_url(img)
+        if u:
+            images.append(u)
+
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": name,
+        "image": images,
+        "description": desc,
+        "sku": product.get("code") or "",
+        "offers": {
+            "@type": "Offer",
+            "price": product.get("price"),
+            "priceCurrency": product.get("currency") or "TRY",
+            "availability": "https://schema.org/InStock",
+            "url": SITE_ORIGIN + PAGE_PATHS["products"][lang],
+        },
+    }
+    return '  <script type="application/ld+json">%s</script>' % json.dumps(data, ensure_ascii=False)
 
 
 def theme_init_script():
@@ -266,9 +395,35 @@ def wa_float_html(lang):
   </a>''' % (wa_href(lang), ICON_WA)
 
 
-def page_shell(lang, page_key, title, description, body, extra_head="", robots=None):
+OG_LOCALE = {"tr": "tr_TR", "en": "en_US", "ar": "ar_AR"}
+
+
+def og_meta_html(lang, page_key, title, description, og_image):
+    url = SITE_ORIGIN + PAGE_PATHS[page_key][lang]
+    lines = [
+        '  <meta property="og:type" content="website">',
+        '  <meta property="og:site_name" content="Mega Far">',
+        '  <meta property="og:locale" content="%s">' % OG_LOCALE[lang],
+        '  <meta property="og:title" content="%s">' % esc(title),
+        '  <meta property="og:description" content="%s">' % esc(description),
+        '  <meta property="og:url" content="%s">' % url,
+    ]
+    if og_image:
+        lines.append('  <meta property="og:image" content="%s">' % esc(og_image))
+        lines.append('  <meta name="twitter:card" content="summary_large_image">')
+    else:
+        lines.append('  <meta name="twitter:card" content="summary">')
+    lines.append('  <meta name="twitter:title" content="%s">' % esc(title))
+    lines.append('  <meta name="twitter:description" content="%s">' % esc(description))
+    if og_image:
+        lines.append('  <meta name="twitter:image" content="%s">' % esc(og_image))
+    return "\n".join(lines)
+
+
+def page_shell(lang, page_key, title, description, body, extra_head="", robots=None, og_image=None):
     dirattr = ' dir="rtl"' if HTML_DIR[lang] == "rtl" else ""
     robots_tag = '\n  <meta name="robots" content="%s">' % robots if robots else ""
+    og_tags = og_meta_html(lang, page_key, title, description, og_image)
     return '''<!doctype html>
 <html lang="%(html_lang)s"%(dirattr)s>
 <head>
@@ -277,6 +432,7 @@ def page_shell(lang, page_key, title, description, body, extra_head="", robots=N
   %(theme_init)s
   <title>%(title)s</title>
   <meta name="description" content="%(description)s">%(robots)s
+%(og_tags)s
 %(hreflang)s
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,6 +460,7 @@ def page_shell(lang, page_key, title, description, body, extra_head="", robots=N
         "title": title,
         "description": description,
         "robots": robots_tag,
+        "og_tags": og_tags,
         "hreflang": hreflang_tags(page_key, lang),
         "style_href": rel_asset(page_key, lang, "assets/style.css"),
         "script_href": rel_asset(page_key, lang, "assets/script.js"),
@@ -538,8 +695,10 @@ def build_contact(lang):
 
 
 # =========================================================
-# PRODUCTS (Urunler) — demo grid, shares script.js PRODUCTS (still TR names,
-# real 60-product content per language pending from client)
+# PRODUCTS (Urunler) — kartlar data/products.json'dan sunucu
+# tarafinda (bu script tarafindan) statik olarak gomulur; SEO icin
+# ham HTML'de gercek urun verisi bulunur. script.js sadece davranisi
+# (lightbox) mevcut kartlara sonradan "hydrate" eder.
 # =========================================================
 
 PRODUCTS_COPY = {
@@ -547,7 +706,7 @@ PRODUCTS_COPY = {
         "title": "Ürünler — Mega Far",
         "desc": "Mega Far ürün kataloğu — LED aydınlatma, çakar ve kalıp imalatı ürünlerimizi inceleyin, WhatsApp'tan hemen sorun.",
         "h1": "Ürünler",
-        "p": "Karta tıklayınca arka görseller ve (varsa) ürün videosu detay görünümünde açılır. Bu demo, 6 örnek ürünle grid + lightbox mekanizmasını gösterir.",
+        "p": "Kartlara tıklayarak ürün görsellerini ve (varsa) videosunu detaylı inceleyebilir, WhatsApp'tan hemen bilgi alabilirsiniz.",
         "grid_label": "Ürün listesi",
         "dialog_label": "Ürün detayı",
         "nav_prev": "Önceki", "nav_next": "Sonraki",
@@ -556,7 +715,7 @@ PRODUCTS_COPY = {
         "title": "Products — Mega Far",
         "desc": "Mega Far product catalog — browse our LED lighting, beacon and mold manufacturing products, ask instantly on WhatsApp.",
         "h1": "Products",
-        "p": "Click a card to open the detail view with back photos and (if available) a product video. This demo shows the grid + lightbox mechanism with 6 sample products.",
+        "p": "Click a product card to view its images and (if available) a video in detail, and get in touch instantly on WhatsApp.",
         "grid_label": "Product list",
         "dialog_label": "Product detail",
         "nav_prev": "Previous", "nav_next": "Next",
@@ -565,7 +724,7 @@ PRODUCTS_COPY = {
         "title": "المنتجات — ميغا فار",
         "desc": "كتالوج منتجات ميغا فار — تصفح منتجات إضاءة LED والومضات وتصنيع القوالب، واسأل فورًا عبر واتساب.",
         "h1": "المنتجات",
-        "p": "انقر على البطاقة لفتح العرض التفصيلي مع الصور الخلفية وفيديو المنتج (إن وجد). يعرض هذا العرض التجريبي آلية الشبكة والعارض المنبثق بستة منتجات نموذجية.",
+        "p": "انقر على بطاقة المنتج لعرض الصور وفيديو المنتج (إن وجد) بالتفصيل، وتواصل معنا فورًا عبر واتساب.",
         "grid_label": "قائمة المنتجات",
         "dialog_label": "تفاصيل المنتج",
         "nav_prev": "السابق", "nav_next": "التالي",
@@ -576,14 +735,16 @@ PRODUCTS_COPY = {
 def build_products(lang):
     c = PRODUCTS_COPY[lang]
     t = T[lang]
-    i18n_script = '''  <script>
-    window.MEGAFAR_I18N = {
-      askWhatsapp: "%s",
-      zoomHint: "%s",
-      newBadge: "%s",
-      waFloatMessage: "%s"
-    };
-  </script>''' % (t["ask_whatsapp"], t["zoom_hint"], t["new_badge"], t["wa_float_message"])
+    products = load_products()
+
+    cards_html = "\n".join(
+        product_card_html(product, i, lang) for i, product in enumerate(products)
+    )
+    jsonld_html = "\n".join(product_jsonld_html(product, lang) for product in products)
+
+    og_image = None
+    if products and products[0].get("front_image"):
+        og_image = abs_url(products[0]["front_image"])
 
     body = '''  <main class="container">
     <div class="page-head">
@@ -591,7 +752,9 @@ def build_products(lang):
       <p>%(p)s</p>
     </div>
 
-    <ul class="grid" data-product-grid aria-label="%(grid_label)s"></ul>
+    <ul class="grid" data-product-grid aria-label="%(grid_label)s">
+%(cards)s
+    </ul>
   </main>
 
   <div class="lightbox" data-lightbox>
@@ -620,9 +783,10 @@ def build_products(lang):
     </div>
   </div>''' % {
         "h1": c["h1"], "p": c["p"], "grid_label": c["grid_label"], "dialog_label": c["dialog_label"],
+        "cards": cards_html,
         "close": t["close"], "icon_wa": ICON_WA, "ask_whatsapp": t["ask_whatsapp"],
     }
-    return page_shell(lang, "products", c["title"], c["desc"], body, extra_head=i18n_script, robots="noindex")
+    return page_shell(lang, "products", c["title"], c["desc"], body, extra_head=jsonld_html, og_image=og_image)
 
 
 BUILDERS = {"home": build_home, "about": build_about, "contact": build_contact, "products": build_products}
@@ -637,15 +801,17 @@ def write(path, content):
 
 
 def build_sitemap():
+    # <loc> ve alternate href'ler mutlak URL olmali (sitemap spec'i) -
+    # goreli yol Search Console tarafindan reddedilebilir/yok sayilabilir.
     urls = []
     for page_key in ("home", "products", "about", "contact"):
         for lang in ("tr", "en", "ar"):
-            loc = PAGE_PATHS[page_key][lang]
+            loc = SITE_ORIGIN + PAGE_PATHS[page_key][lang]
             alt_tags = "\n".join(
-                '    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (lg, PAGE_PATHS[page_key][lg])
+                '    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (lg, SITE_ORIGIN + PAGE_PATHS[page_key][lg])
                 for lg in ("tr", "en", "ar")
             )
-            alt_tags += '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % PAGE_PATHS[page_key]["tr"]
+            alt_tags += '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % (SITE_ORIGIN + PAGE_PATHS[page_key]["tr"])
             urls.append('  <url>\n    <loc>%s</loc>\n%s\n  </url>' % (loc, alt_tags))
     xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -656,12 +822,25 @@ def build_sitemap():
     write("sitemap.xml", xml)
 
 
+def build_robots():
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /admin/\n"
+        "Disallow: /api/\n"
+        "\n"
+        "Sitemap: %s/sitemap.xml\n" % SITE_ORIGIN
+    )
+    write("robots.txt", content)
+
+
 def main():
     for page_key, builder in BUILDERS.items():
         for lang in ("tr", "en", "ar"):
             content = builder(lang)
             write(FILE_PATHS[page_key][lang], content)
     build_sitemap()
+    build_robots()
 
 
 if __name__ == "__main__":

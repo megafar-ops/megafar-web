@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/index.html"/>
+    <loc>https://megafar-web.vercel.app/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/index.html"/>
   </url>
   <url>
-    <loc>/en/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/index.html"/>
+    <loc>https://megafar-web.vercel.app/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/index.html"/>
   </url>
   <url>
-    <loc>/ar/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/index.html"/>
+    <loc>https://megafar-web.vercel.app/ar/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/index.html"/>
   </url>
   <url>
-    <loc>/urunler/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/urunler/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/urunler/index.html"/>
+    <loc>https://megafar-web.vercel.app/urunler/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/urunler/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/urunler/index.html"/>
   </url>
   <url>
-    <loc>/en/products/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/urunler/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/urunler/index.html"/>
+    <loc>https://megafar-web.vercel.app/en/products/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/urunler/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/urunler/index.html"/>
   </url>
   <url>
-    <loc>/ar/products/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/urunler/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/products/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/urunler/index.html"/>
+    <loc>https://megafar-web.vercel.app/ar/products/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/urunler/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/products/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/urunler/index.html"/>
   </url>
   <url>
-    <loc>/hakkimizda/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/hakkimizda/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/hakkimizda/index.html"/>
+    <loc>https://megafar-web.vercel.app/hakkimizda/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
   </url>
   <url>
-    <loc>/en/about/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/hakkimizda/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/hakkimizda/index.html"/>
+    <loc>https://megafar-web.vercel.app/en/about/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
   </url>
   <url>
-    <loc>/ar/about/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/hakkimizda/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/about/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/hakkimizda/index.html"/>
+    <loc>https://megafar-web.vercel.app/ar/about/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/about/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/hakkimizda/index.html"/>
   </url>
   <url>
-    <loc>/iletisim/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/iletisim/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/iletisim/index.html"/>
+    <loc>https://megafar-web.vercel.app/iletisim/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/iletisim/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/iletisim/index.html"/>
   </url>
   <url>
-    <loc>/en/contact/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/iletisim/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/iletisim/index.html"/>
+    <loc>https://megafar-web.vercel.app/en/contact/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/iletisim/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/iletisim/index.html"/>
   </url>
   <url>
-    <loc>/ar/contact/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="/iletisim/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="/ar/contact/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="/iletisim/index.html"/>
+    <loc>https://megafar-web.vercel.app/ar/contact/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://megafar-web.vercel.app/iletisim/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://megafar-web.vercel.app/en/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://megafar-web.vercel.app/ar/contact/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://megafar-web.vercel.app/iletisim/index.html"/>
   </url>
 </urlset>
