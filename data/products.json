@@ -15,7 +15,9 @@
       "is_new": true,
       "tag": "",
       "front_image": "/assets/products/ph-6-front.svg",
-      "back_images": ["/assets/products/ph-6-back-a.svg"],
+      "back_images": [
+        "/assets/products/ph-6-back-a.svg"
+      ],
       "video": null,
       "sort_order": 1,
       "created_at": "2026-07-24T09:00:00.000Z"
@@ -35,7 +37,10 @@
       "is_new": false,
       "tag": "",
       "front_image": "/assets/products/ph-1-front.svg",
-      "back_images": ["/assets/products/ph-1-back-a.svg", "/assets/products/ph-1-back-b.svg"],
+      "back_images": [
+        "/assets/products/ph-1-back-a.svg",
+        "/assets/products/ph-1-back-b.svg"
+      ],
       "video": "/assets/products/demo-video-not-found.mp4",
       "sort_order": 2,
       "created_at": "2026-07-25T09:00:00.000Z"
@@ -55,7 +60,10 @@
       "is_new": false,
       "tag": "",
       "front_image": "/assets/products/ph-2-front.svg",
-      "back_images": ["/assets/products/ph-2-back-a.svg", "/assets/products/ph-2-back-b.svg"],
+      "back_images": [
+        "/assets/products/ph-2-back-a.svg",
+        "/assets/products/ph-2-back-b.svg"
+      ],
       "video": null,
       "sort_order": 3,
       "created_at": "2026-07-26T09:00:00.000Z"
@@ -75,7 +83,9 @@
       "is_new": false,
       "tag": "",
       "front_image": "/assets/products/ph-3-front.svg",
-      "back_images": ["/assets/products/ph-3-back-a.svg"],
+      "back_images": [
+        "/assets/products/ph-3-back-a.svg"
+      ],
       "video": null,
       "sort_order": 4,
       "created_at": "2026-07-27T09:00:00.000Z"
@@ -95,7 +105,9 @@
       "is_new": false,
       "tag": "",
       "front_image": "/assets/products/ph-4-front.svg",
-      "back_images": ["/assets/products/ph-4-back-a.svg", "/assets/products/ph-4-back-b.svg"],
+      "back_images": [
+        "/assets/products/ph-4-back-a.svg"
+      ],
       "video": null,
       "sort_order": 5,
       "created_at": "2026-07-28T09:00:00.000Z"
@@ -115,7 +127,10 @@
       "is_new": false,
       "tag": "",
       "front_image": "/assets/products/ph-5-front.svg",
-      "back_images": ["/assets/products/ph-5-back-a.svg", "/assets/products/ph-5-back-b.svg"],
+      "back_images": [
+        "/assets/products/ph-5-back-a.svg",
+        "/assets/products/ph-5-back-b.svg"
+      ],
       "video": null,
       "sort_order": 6,
       "created_at": "2026-07-29T09:00:00.000Z"
