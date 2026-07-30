@@ -117,18 +117,19 @@
       "description_tr": "Araçlarınız için mükemmel aydınlatma sağlayan 6 LED'li parmak lamba.",
       "description_en": "A perfect lighting solution for your vehicles with the 6 LED finger lamp.",
       "description_ar": "حل إضاءة مثالي لمركباتك مع مصباح الإصبع LED 6.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419924247-WhatsApp_Image_2026-07-30_at_00.34.16__1_-wwfVtZHQ9Y82iiuAl4GeQNZjhRiEeU.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419925650-WhatsApp_Image_2026-07-30_at_00.34.16-ZSKfnhEmGQI7XcJzhFkQOC6BCZh4oU.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419925650-WhatsApp_Image_2026-07-30_at_00.34.16-ZSKfnhEmGQI7XcJzhFkQOC6BCZh4oU.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419924247-WhatsApp_Image_2026-07-30_at_00.34.16__1_-wwfVtZHQ9Y82iiuAl4GeQNZjhRiEeU.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419927104-WhatsApp_Video_2026-07-30_at_00.34.21-nnVw2BbkQepSTYauvjC2gpEk0ksuAy.mp4",
       "sort_order": 6,
-      "created_at": "2026-07-30T13:58:23.818Z"
+      "created_at": "2026-07-30T13:58:23.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kxiv57ytx",
