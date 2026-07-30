@@ -469,9 +469,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     var badge = product.is_new ? '<span class="card__badge">YENİ</span>' : "";
 
     return (
-      '<li class="card" data-accent="' + escapeHtml(product.accent || "white") + '" data-id="' + escapeHtml(product.id) + '"' +
-      (manual ? ' draggable="true"' : "") +
-      ' tabindex="0">' +
+      '<li class="card" data-accent="' + escapeHtml(product.accent || "white") + '" data-id="' + escapeHtml(product.id) + '" tabindex="0">' +
       '<span class="card__corner card__corner--tl"></span>' +
       '<span class="card__corner card__corner--tr"></span>' +
       '<span class="card__corner card__corner--bl"></span>' +
@@ -644,7 +642,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       .map(function (img, i) {
         var src = img.url || img.localUrl;
         return (
-          '<div class="admin-media-thumb' + (img.uploading ? " is-uploading" : "") + '">' +
+          '<div class="admin-media-thumb' + (img.uploading ? " is-uploading" : "") + '" data-thumb-index="' + i + '">' +
           '<img src="' + escapeHtml(src) + '" alt="">' +
           (img.uploading ? progressOverlay(img.progress) : "") +
           (i === 0 ? '<span class="admin-media-thumb__badge">Kapak</span>' : "") +
@@ -657,6 +655,19 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       .join("");
     renderCoverPosition();
     updateSaveAvailability();
+  }
+
+  // Herhangi bir gorseli kapak (index 0) yapar - cift tiklama veya kapak
+  // kutusuna surukleme ile cagrilir. Yeni kapagin kirpma konumu sifirlanir,
+  // cunku eski konum onceki fotografa gore ayarlanmisti.
+  function promoteToCover(index) {
+    if (index <= 0 || index >= state.draftImages.length) return;
+    if (state.draftImages[index].uploading) return;
+    var img = state.draftImages.splice(index, 1)[0];
+    state.draftImages.unshift(img);
+    state.draft.front_image_position = "50% 50%";
+    state.formDirty = true;
+    renderImageGallery();
   }
 
   function clamp(v, min, max) {
@@ -714,6 +725,54 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     });
   }
 
+  // Galeri gorsellerine cift tiklama (masaustu ve dokunmatik ekranlarda
+  // cift dokunma) ile veya bir gorseli kapak kutusunun uzerine surukleyip
+  // birakarak o gorseli kapak yapma. Pointer Events kullanildigi icin
+  // mouse ve touch'ta ayni sekilde calisir.
+  function bindGalleryCoverEvents() {
+    var dragging = null;
+
+    function isOverCoverFrame(x, y) {
+      var rect = dom.coverFrame.getBoundingClientRect();
+      return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+    }
+
+    dom.imageGallery.addEventListener("dblclick", function (e) {
+      var thumb = e.target.closest(".admin-media-thumb");
+      if (!thumb) return;
+      var idx = parseInt(thumb.getAttribute("data-thumb-index"), 10);
+      if (!isNaN(idx)) promoteToCover(idx);
+    });
+
+    dom.imageGallery.addEventListener("pointerdown", function (e) {
+      if (e.target.closest("[data-remove-image]")) return;
+      var thumb = e.target.closest(".admin-media-thumb");
+      if (!thumb) return;
+      var idx = parseInt(thumb.getAttribute("data-thumb-index"), 10);
+      if (isNaN(idx) || idx === 0) return;
+      dragging = { index: idx, thumb: thumb };
+      thumb.setPointerCapture(e.pointerId);
+      thumb.classList.add("is-dragging-to-cover");
+    });
+
+    dom.imageGallery.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      dom.coverFrame.classList.toggle("is-drop-target", isOverCoverFrame(e.clientX, e.clientY));
+    });
+
+    function finishDrag(e) {
+      if (!dragging) return;
+      var overCover = isOverCoverFrame(e.clientX, e.clientY);
+      dragging.thumb.classList.remove("is-dragging-to-cover");
+      dom.coverFrame.classList.remove("is-drop-target");
+      if (overCover) promoteToCover(dragging.index);
+      dragging = null;
+    }
+
+    dom.imageGallery.addEventListener("pointerup", finishDrag);
+    dom.imageGallery.addEventListener("pointercancel", finishDrag);
+  }
+
   function renderVideoPreview() {
     var hasVideo = !!state.draft.video;
     if (state.videoUploading) {
@@ -757,6 +816,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
   function bindStaticEvents() {
     bindCoverPositionEvents();
+    bindGalleryCoverEvents();
 
     dom.loginBtn.addEventListener("click", startLogin);
     dom.emailLoginForm.addEventListener("submit", startEmailLogin);
@@ -796,40 +856,48 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       if (product) openEditModal(product);
     });
 
-    dom.grid.addEventListener("dragstart", function (e) {
-      var li = e.target.closest(".card");
-      if (!li || dom.grid.getAttribute("data-sort-mode") !== "manual") return;
+    // Manuel siralama surukleme: native HTML5 DnD yerine Pointer Events
+    // kullanilir - boylece hem fare hem dokunmatik ekranlarda (telefon/
+    // tablet) ayni sekilde calisir. Surukleme sadece tutma kolundan
+    // (.admin-card__drag) baslar, karta her yerden dokunmak surukleme
+    // baslatmaz (kartin normal tiklama/duzenleme davranisi bozulmaz).
+    dom.grid.addEventListener("pointerdown", function (e) {
+      if (dom.grid.getAttribute("data-sort-mode") !== "manual") return;
+      var handle = e.target.closest(".admin-card__drag");
+      if (!handle) return;
+      var li = handle.closest(".card");
+      if (!li) return;
+      e.preventDefault();
       draggingId = li.getAttribute("data-id");
+      handle.setPointerCapture(e.pointerId);
       li.classList.add("is-dragging");
-      e.dataTransfer.effectAllowed = "move";
     });
 
-    dom.grid.addEventListener("dragend", function (e) {
-      var li = e.target.closest(".card");
-      if (li) li.classList.remove("is-dragging");
+    dom.grid.addEventListener("pointermove", function (e) {
+      if (!draggingId) return;
+      var target = document.elementFromPoint(e.clientX, e.clientY);
+      var li = target && target.closest(".card");
+      var overs = dom.grid.querySelectorAll(".drag-over");
+      for (var i = 0; i < overs.length; i++) if (!li || overs[i] !== li) overs[i].classList.remove("drag-over");
+      if (li && li.getAttribute("data-id") !== draggingId) li.classList.add("drag-over");
+    });
+
+    function finishManualDrag(e) {
+      if (!draggingId) return;
+      var target = document.elementFromPoint(e.clientX, e.clientY);
+      var li = target && target.closest(".card");
+      var draggedLi = dom.grid.querySelector('.card[data-id="' + draggingId + '"]');
+      if (draggedLi) draggedLi.classList.remove("is-dragging");
       var overs = dom.grid.querySelectorAll(".drag-over");
       for (var i = 0; i < overs.length; i++) overs[i].classList.remove("drag-over");
-    });
-
-    dom.grid.addEventListener("dragover", function (e) {
-      if (dom.grid.getAttribute("data-sort-mode") !== "manual") return;
-      e.preventDefault();
-      var li = e.target.closest(".card");
-      if (!li) return;
-      var overs = dom.grid.querySelectorAll(".drag-over");
-      for (var i = 0; i < overs.length; i++) if (overs[i] !== li) overs[i].classList.remove("drag-over");
-      li.classList.add("drag-over");
-    });
-
-    dom.grid.addEventListener("drop", function (e) {
-      if (dom.grid.getAttribute("data-sort-mode") !== "manual") return;
-      e.preventDefault();
-      var li = e.target.closest(".card");
-      if (!li || !draggingId) return;
-      li.classList.remove("drag-over");
-      reorderManual(draggingId, li.getAttribute("data-id"));
+      if (li && li.getAttribute("data-id") !== draggingId) {
+        reorderManual(draggingId, li.getAttribute("data-id"));
+      }
       draggingId = null;
-    });
+    }
+
+    dom.grid.addEventListener("pointerup", finishManualDrag);
+    dom.grid.addEventListener("pointercancel", finishManualDrag);
 
     dom.modalClose.addEventListener("click", attemptCloseModal);
     dom.cancelBtn.addEventListener("click", attemptCloseModal);
