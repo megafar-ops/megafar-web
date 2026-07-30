@@ -134,6 +134,26 @@
       "video": null,
       "sort_order": 6,
       "created_at": "2026-07-29T09:00:00.000Z"
+    },
+    {
+      "id": "prod-ms7epbj6nr0e",
+      "code": "",
+      "name_tr": "ssfds",
+      "name_en": "",
+      "name_ar": "",
+      "description_tr": "dfsffsf",
+      "description_en": "",
+      "description_ar": "",
+      "price": 0,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": null,
+      "back_images": [],
+      "video": null,
+      "sort_order": 7,
+      "created_at": "2026-07-30T11:04:34.722Z"
     }
   ]
 }
