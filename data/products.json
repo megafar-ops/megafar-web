@@ -54,7 +54,7 @@
       "description_tr": "Araçlarınız için mükemmel görünürlük sağlayan beyaz renkli 1 LED'li yan sinyal.",
       "description_en": "A white 1 LED side marker that provides excellent visibility for your vehicles.",
       "description_ar": "علامة جانبية LED واحدة باللون الأبيض توفر رؤية ممتازة لمركباتك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
@@ -63,7 +63,8 @@
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419900717-WhatsApp_Video_2026-07-30_at_00.21.27-C6gAmlInZoCKQPEVQIwEb1nz4C2EPY.mp4",
       "sort_order": 3,
-      "created_at": "2026-07-30T13:58:18.818Z"
+      "created_at": "2026-07-30T13:58:18.818Z",
+      "front_image_position": "48% 0%"
     },
     {
       "id": "prod-ms7kx67pwojd",
