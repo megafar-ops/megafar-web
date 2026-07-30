@@ -1,28 +1,6 @@
 {
   "products": [
     {
-      "id": "mf-or-108",
-      "code": "MF-OR-108",
-      "name_tr": "Off-Road LED Bar 300W",
-      "name_en": "Off-Road LED Bar 300W",
-      "name_ar": "قضيب LED للطرق الوعرة 300 واط",
-      "description_tr": "Ağır hizmet tipi off-road LED bar, tam alüminyum gövde.",
-      "description_en": "Heavy-duty off-road LED bar, full aluminum housing.",
-      "description_ar": "قضيب LED للطرق الوعرة للخدمة الشاقة، هيكل ألومنيوم بالكامل.",
-      "price": 2890,
-      "currency": "TRY",
-      "accent": "amber",
-      "is_new": false,
-      "tag": "",
-      "front_image": "/assets/products/ph-4-front.svg",
-      "back_images": [
-        "/assets/products/ph-4-back-a.svg"
-      ],
-      "video": null,
-      "sort_order": 5,
-      "created_at": "2026-07-28T09:00:00.000Z"
-    },
-    {
       "id": "mf-xn-033",
       "code": "MF-XN-033",
       "name_tr": "Xenon Far Kiti H7",
