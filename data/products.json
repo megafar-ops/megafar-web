@@ -227,18 +227,19 @@
       "description_tr": "Aracınız için mükemmel bir aydınlatma çözümü sunan 9 LED'li kaba neon lamba.",
       "description_en": "A perfect lighting solution for your vehicle featuring a 9 LED thick neon lamp.",
       "description_ar": "حل إضاءة مثالي لسيارتك مع مصباح نيون سميك 9 LED.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419949389-WhatsApp_Image_2026-07-30_at_00.01.0-RBPjwaOghA1qgYwVKej0DLM1sPUPT5.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419950623-WhatsApp_Image_2026-07-30_at_00.01.01-rfGJ5chGsMiFgy5KQmB0grxM2VmAkm.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419950623-WhatsApp_Image_2026-07-30_at_00.01.01-rfGJ5chGsMiFgy5KQmB0grxM2VmAkm.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419949389-WhatsApp_Image_2026-07-30_at_00.01.0-RBPjwaOghA1qgYwVKej0DLM1sPUPT5.jpeg"
       ],
       "video": null,
       "sort_order": 11,
-      "created_at": "2026-07-30T13:58:28.818Z"
+      "created_at": "2026-07-30T13:58:28.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7ky0uxve3z",
