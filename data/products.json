@@ -1,28 +1,6 @@
 {
   "products": [
     {
-      "id": "mf-sf-027",
-      "code": "MF-SF-027",
-      "name_tr": "Sis Farı Kalıp Seti",
-      "name_en": "Fog Light Mold Set",
-      "name_ar": "طقم قالب مصباح الضباب",
-      "description_tr": "Kendi kalıbımızdan çıkan sis farı gövdesi, yüksek darbe dayanımı.",
-      "description_en": "Fog light housing from our own mold, high impact resistance.",
-      "description_ar": "هيكل مصباح الضباب من قالبنا الخاص، مقاومة عالية للصدمات.",
-      "price": 540,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "/assets/products/ph-3-front.svg",
-      "back_images": [
-        "/assets/products/ph-3-back-a.svg"
-      ],
-      "video": null,
-      "sort_order": 4,
-      "created_at": "2026-07-27T09:00:00.000Z"
-    },
-    {
       "id": "mf-or-108",
       "code": "MF-OR-108",
       "name_tr": "Off-Road LED Bar 300W",
