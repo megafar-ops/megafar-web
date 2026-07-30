@@ -883,18 +883,19 @@
       "description_tr": "Küçük boy çakarlı lamba, araçlarınız için mükemmel bir aydınlatma çözümüdür.",
       "description_en": "The small size flashing lamp is the perfect lighting solution for your vehicles.",
       "description_ar": "المصباح الومض الصغير هو الحل المثالي للإضاءة لمركباتك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420098075-WhatsApp_Image_2026-07-30_at_16.27.02-gbj9NI3K6TqGnfsKk1efZUTivSId5C.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420099484-WhatsApp_Image_2026-07-30_at_16.27.03-Sp2z2AccmrINQngN8RbF6DwANHwQa7.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420099484-WhatsApp_Image_2026-07-30_at_16.27.03-Sp2z2AccmrINQngN8RbF6DwANHwQa7.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420098075-WhatsApp_Image_2026-07-30_at_16.27.02-gbj9NI3K6TqGnfsKk1efZUTivSId5C.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420100955-WhatsApp_Video_2026-07-30_at_16.27.03-aZmzMq8iYboQbRrqFEsidEiQ0LrMtM.mp4",
       "sort_order": 41,
-      "created_at": "2026-07-30T13:58:58.818Z"
+      "created_at": "2026-07-30T13:58:58.818Z",
+      "front_image_position": "67% 0%"
     },
     {
       "id": "prod-ms7l184xmu8c",
