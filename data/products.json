@@ -205,18 +205,19 @@
       "description_tr": "Güçlü aydınlatma sağlayan 9 LED'li kaba neon lamba ile yolculuklarınızı güvence altına alın.",
       "description_en": "Ensure your journeys are safe with the powerful 9 LED heavy neon lamp.",
       "description_ar": "تأكد من أن رحلاتك آمنة مع مصباح النيون الثقيل 9 LED القوي.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419946340-WhatsApp_Image_2026-07-29_at_23.59.5-rOz7pEFSAbfetMBoWmw3eyFNkZ5Mh0.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419947971-WhatsApp_Image_2026-07-29_at_23.59.50-0TaAjwlgBE9t26Qtot61gbFInk8Pu9.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419947971-WhatsApp_Image_2026-07-29_at_23.59.50-0TaAjwlgBE9t26Qtot61gbFInk8Pu9.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419946340-WhatsApp_Image_2026-07-29_at_23.59.5-rOz7pEFSAbfetMBoWmw3eyFNkZ5Mh0.jpeg"
       ],
       "video": null,
       "sort_order": 10,
-      "created_at": "2026-07-30T13:58:27.818Z"
+      "created_at": "2026-07-30T13:58:27.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kxvwixxtr",
