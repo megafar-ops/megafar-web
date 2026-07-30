@@ -315,18 +315,19 @@
       "description_tr": "Yüksek görünürlük sağlayan 9 LED'li sarı neon parmak lambası ile güvenliğinizi artırın.",
       "description_en": "Enhance your safety with the 9 LED yellow neon finger lamp that provides high visibility.",
       "description_ar": "عزز سلامتك مع مصباح إصبع نيون أصفر 9 LED الذي يوفر رؤية عالية.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419968809-WhatsApp_Image_2026-07-30_at_16.32.03__1_-pypninW8ZB3VekniV5EHhnFf0nBXOX.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419969992-WhatsApp_Image_2026-07-30_at_16.32.03-Ex8VzS3hqmrj88hoUEARwJtDT0fYqo.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419969992-WhatsApp_Image_2026-07-30_at_16.32.03-Ex8VzS3hqmrj88hoUEARwJtDT0fYqo.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419968809-WhatsApp_Image_2026-07-30_at_16.32.03__1_-pypninW8ZB3VekniV5EHhnFf0nBXOX.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419971453-WhatsApp_Video_2026-07-30_at_16.32.03-HjvRJvT3yE1y2PxSJmdQTWTDwggjGp.mp4",
       "sort_order": 15,
-      "created_at": "2026-07-30T13:58:32.818Z"
+      "created_at": "2026-07-30T13:58:32.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kygu0qser",
