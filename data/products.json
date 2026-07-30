@@ -862,18 +862,19 @@
       "description_tr": "Araçlarınız için ideal küçük boy çakarlı lamba.",
       "description_en": "An ideal small size flashing light for your vehicles.",
       "description_ar": "مصباح وميض صغير الحجم مثالي لمركباتك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420092185-WhatsApp_Image_2026-07-30_at_16.31.56__1_-lCGr5Xxf82qhDqxvKiOc19Cm0bD1WU.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420093484-WhatsApp_Image_2026-07-30_at_16.31.56-1PPiiU7QwYh37bxRQ45RpLVu3r8QQf.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420093484-WhatsApp_Image_2026-07-30_at_16.31.56-1PPiiU7QwYh37bxRQ45RpLVu3r8QQf.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420092185-WhatsApp_Image_2026-07-30_at_16.31.56__1_-lCGr5Xxf82qhDqxvKiOc19Cm0bD1WU.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420094758-WhatsApp_Video_2026-07-30_at_16.31.56-YhL73wnbg7ceJIijn6QaSh5kdm33ux.mp4",
       "sort_order": 40,
-      "created_at": "2026-07-30T13:58:57.818Z"
+      "created_at": "2026-07-30T13:58:57.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7l14xqeqh9",
