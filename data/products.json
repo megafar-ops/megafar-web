@@ -1,29 +1,6 @@
 {
   "products": [
     {
-      "id": "mf-xn-033",
-      "code": "MF-XN-033",
-      "name_tr": "Xenon Far Kiti H7",
-      "name_en": "Xenon Headlight Kit H7",
-      "name_ar": "طقم مصباح زينون H7",
-      "description_tr": "Yüksek ışık şiddeti, uzun ömürlü xenon far kiti, kolay montaj.",
-      "description_en": "High light intensity, long-lasting xenon headlight kit, easy installation.",
-      "description_ar": "شدة إضاءة عالية، طقم مصباح زينون طويل الأمد، تركيب سهل.",
-      "price": 990,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "/assets/products/ph-5-front.svg",
-      "back_images": [
-        "/assets/products/ph-5-back-a.svg",
-        "/assets/products/ph-5-back-b.svg"
-      ],
-      "video": null,
-      "sort_order": 6,
-      "created_at": "2026-07-29T09:00:00.000Z"
-    },
-    {
       "id": "prod-ms7kwu2o6m5y",
       "code": "",
       "name_tr": "1 LED'li Yan Sinyal 12-24V Beyaz Renkli",
