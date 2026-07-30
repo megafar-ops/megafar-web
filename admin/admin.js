@@ -643,7 +643,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
         var src = img.url || img.localUrl;
         return (
           '<div class="admin-media-thumb' + (img.uploading ? " is-uploading" : "") + '" data-thumb-index="' + i + '">' +
-          '<img src="' + escapeHtml(src) + '" alt="">' +
+          '<img src="' + escapeHtml(src) + '" alt="" draggable="false">' +
           (img.uploading ? progressOverlay(img.progress) : "") +
           (i === 0 ? '<span class="admin-media-thumb__badge">Kapak</span>' : "") +
           (img.uploading
@@ -689,7 +689,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     }
     var pos = parsePosition(state.draft.front_image_position);
     dom.coverFrame.innerHTML =
-      '<img src="' + escapeHtml(frontUrl) + '" alt="" style="object-position: ' + pos.x + '% ' + pos.y + '%;">' +
+      '<img src="' + escapeHtml(frontUrl) + '" alt="" draggable="false" style="object-position: ' + pos.x + '% ' + pos.y + '%;">' +
       '<span class="admin-cover-position__marker" style="left: ' + pos.x + '%; top: ' + pos.y + '%;"></span>';
   }
 
