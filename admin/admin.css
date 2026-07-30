@@ -5,6 +5,13 @@
    eklentileri (toolbar, duzenle/surukle ikonlari, modal) tanimlar.
    ========================================================= */
 
+/* Author stylesheet'teki class bazli "display" kurallari (ör. .btn,
+   .admin-login) tarayicinin varsayilan [hidden]{display:none} kuralini
+   ezebiliyor (ayni ozgüllükte ama author > UA agent oncelikli) - bu da
+   JS ile .hidden=true yapilan elemanlarin (giris kutusu, cikis butonu vb.)
+   gercekte gizlenmemesine yol aciyordu. Bu kural her zaman kazanir. */
+[hidden] { display: none !important; }
+
 .admin-panel-label {
   font-family: var(--font-head);
   font-size: 0.78rem;
@@ -53,6 +60,35 @@
   color: var(--signal-red);
   font-size: 0.85rem;
 }
+
+.admin-login__divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-login__divider::before,
+.admin-login__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.admin-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.admin-login__form .btn { align-self: center; }
 
 /* ---------------------------------------------------------
    Toolbar

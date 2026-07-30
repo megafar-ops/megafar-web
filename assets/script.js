@@ -362,6 +362,91 @@
     });
   }
 
+  /* ---------------- Homepage hero visual carousel ---------------- */
+
+  // Statik HTML ilk 6 gercek urunu (dogru index'lerle) gosterir; JS yuklendikten
+  // sonra ok tuslarina veya birkac saniyede bir otomatik olarak sonraki 6 urune
+  // yumusak bir fade ile gecer. Gorsellere tiklamak ayni lightbox'i acar.
+  function bindHeroCarousel() {
+    var root = document.querySelector("[data-hero-visual]");
+    if (!root || !PRODUCTS.length) return;
+
+    var grid = root.querySelector(".hero__visual-grid");
+    var slots = Array.prototype.slice.call(grid.querySelectorAll(".hero__visual-item"));
+    var batchSize = slots.length;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var startIndex = 0;
+    var timer = null;
+
+    function renderBatch(newStart) {
+      startIndex = ((newStart % PRODUCTS.length) + PRODUCTS.length) % PRODUCTS.length;
+
+      function apply() {
+        slots.forEach(function (slot, i) {
+          var product = PRODUCTS[(startIndex + i) % PRODUCTS.length];
+          if (!product) return;
+          var img = slot.querySelector("img");
+          img.src = resolveAsset(product.frontImage);
+          var name = pick(product.name);
+          img.alt = "";
+          slot.setAttribute("data-index", (startIndex + i) % PRODUCTS.length);
+          slot.setAttribute("aria-label", name);
+        });
+      }
+
+      if (reduceMotion) {
+        apply();
+        return;
+      }
+      grid.classList.add("is-fading");
+      setTimeout(function () {
+        apply();
+        grid.classList.remove("is-fading");
+      }, 260);
+    }
+
+    function resetTimer() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () { renderBatch(startIndex + batchSize); }, 5000);
+    }
+
+    root.querySelector('[data-hero-nav="-1"]').addEventListener("click", function () {
+      renderBatch(startIndex - batchSize);
+      resetTimer();
+    });
+    root.querySelector('[data-hero-nav="1"]').addEventListener("click", function () {
+      renderBatch(startIndex + batchSize);
+      resetTimer();
+    });
+
+    grid.addEventListener("click", function (e) {
+      var item = e.target.closest(".hero__visual-item");
+      if (!item) return;
+      openLightbox(parseInt(item.getAttribute("data-index"), 10));
+    });
+    grid.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var item = e.target.closest(".hero__visual-item");
+      if (!item) return;
+      e.preventDefault();
+      openLightbox(parseInt(item.getAttribute("data-index"), 10));
+    });
+
+    resetTimer();
+  }
+
+  /* ---------------- Navbar scroll elevation ---------------- */
+
+  function bindNavbarScroll() {
+    var navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+    function sync() {
+      navbar.classList.toggle("navbar--scrolled", window.scrollY > 4);
+    }
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+  }
+
   /* ---------------- Theme toggle (light / dark) ---------------- */
 
   function bindThemeToggle() {
@@ -390,11 +475,12 @@
       // Statik kartlar zaten ekranda; bu sadece lightbox'in ihtiyac
       // duydugu detay verisini (arka gorseller/video/aciklama)
       // arka planda hazirlar - grid'in gorunumunu etkilemez.
-      loadProducts();
+      loadProducts().then(bindHeroCarousel);
     }
     bindLightboxEvents();
     bindFloatingWa();
     bindNavToggle();
     bindThemeToggle();
+    bindNavbarScroll();
   });
 })();

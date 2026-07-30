@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="/admin/admin.css?v=7">
+  <link rel="stylesheet" href="/admin/admin.css?v=8">
 </head>
 <body>
 
@@ -31,6 +31,25 @@
         <h1>Ürün Kataloğu Yönetimi</h1>
         <p>Ürünleri düzenlemek için GitHub hesabınızla giriş yapın. Hesabınızın <code class="mono">megafar-ops/megafar-web</code> reposuna yazma yetkisi olmalı.</p>
         <button type="button" class="btn btn--primary" data-login-btn>GitHub ile Giriş Yap</button>
+
+        <div class="admin-login__divider"><span>veya</span></div>
+
+        <form class="admin-login__form" data-email-login-form>
+          <label class="admin-field">
+            <span class="admin-field__label">E-posta</span>
+            <input type="email" name="email" data-login-email autocomplete="username" required>
+          </label>
+          <label class="admin-field">
+            <span class="admin-field__label">Şifre</span>
+            <input type="password" name="password" data-login-password autocomplete="current-password" required>
+          </label>
+          <label class="admin-field admin-field--checkbox">
+            <input type="checkbox" data-login-remember checked>
+            <span>Beni hatırla (30 gün)</span>
+          </label>
+          <button type="submit" class="btn btn--ghost" data-email-login-btn>Giriş Yap</button>
+        </form>
+
         <p class="admin-login__error" data-login-error hidden></p>
       </div>
     </section>
@@ -178,6 +197,6 @@
     </div>
   </div>
 
-  <script type="module" src="/admin/admin.js?v=7"></script>
+  <script type="module" src="/admin/admin.js?v=8"></script>
 </body>
 </html>

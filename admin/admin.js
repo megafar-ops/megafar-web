@@ -20,6 +20,8 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
   var DATA_PATH = "data/products.json";
   var API_BASE = "https://api.github.com";
   var TOKEN_KEY = "megafar_admin_gh_token";
+  var TOKEN_EXPIRY_KEY = "megafar_admin_gh_token_expiry";
+  var REMEMBER_MS = 30 * 24 * 60 * 60 * 1000; // 30 gun
 
   var EDIT_ICON =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
@@ -48,6 +50,11 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     dom.loginSection = document.querySelector("[data-admin-login]");
     dom.loginBtn = document.querySelector("[data-login-btn]");
     dom.loginError = document.querySelector("[data-login-error]");
+    dom.emailLoginForm = document.querySelector("[data-email-login-form]");
+    dom.loginEmail = document.querySelector("[data-login-email]");
+    dom.loginPassword = document.querySelector("[data-login-password]");
+    dom.rememberCheckbox = document.querySelector("[data-login-remember]");
+    dom.emailLoginBtn = document.querySelector("[data-email-login-btn]");
     dom.panelSection = document.querySelector("[data-admin-panel]");
     dom.logoutBtn = document.querySelector("[data-logout-btn]");
     dom.userLabel = document.querySelector("[data-admin-user]");
@@ -118,6 +125,43 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
   /* ---------------- auth ---------------- */
 
+  // Token'i "Beni hatirla" isaretliyse (30 gun suresince) localStorage'a,
+  // degilse sadece bu sekme/oturum icin sessionStorage'a yazar. Hem GitHub
+  // OAuth hem e-posta/sifre girisi ayni fonksiyonu kullanir - boylece
+  // "beni hatirla" tercihi giris yontemi ne olursa olsun gecerli olur.
+  function saveToken(token, remember) {
+    sessionStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_EXPIRY_KEY);
+    if (remember) {
+      localStorage.setItem(TOKEN_KEY, token);
+      localStorage.setItem(TOKEN_EXPIRY_KEY, String(Date.now() + REMEMBER_MS));
+    } else {
+      sessionStorage.setItem(TOKEN_KEY, token);
+    }
+  }
+
+  function loadStoredToken() {
+    var stored = localStorage.getItem(TOKEN_KEY);
+    if (stored) {
+      var expiry = parseInt(localStorage.getItem(TOKEN_EXPIRY_KEY), 10);
+      if (expiry && Date.now() < expiry) return stored;
+      localStorage.removeItem(TOKEN_KEY);
+      localStorage.removeItem(TOKEN_EXPIRY_KEY);
+    }
+    return sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  function clearStoredToken() {
+    sessionStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_EXPIRY_KEY);
+  }
+
+  function isRememberChecked() {
+    return !!(dom.rememberCheckbox && dom.rememberCheckbox.checked);
+  }
+
   function startLogin() {
     dom.loginError.hidden = true;
     var popup = window.open("/api/auth", "megafar-oauth", "width=600,height=700");
@@ -147,11 +191,48 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       }
 
       state.token = payload.token;
-      sessionStorage.setItem(TOKEN_KEY, payload.token);
+      saveToken(payload.token, isRememberChecked());
       enterPanel();
     }
 
     window.addEventListener("message", handleMessage);
+  }
+
+  function startEmailLogin(e) {
+    e.preventDefault();
+    dom.loginError.hidden = true;
+
+    var email = dom.loginEmail.value.trim();
+    var password = dom.loginPassword.value;
+    if (!email || !password) return;
+
+    dom.emailLoginBtn.disabled = true;
+    dom.emailLoginBtn.textContent = "Giriş yapılıyor…";
+
+    fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email, password: password })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) {
+          throw new Error((result.data && result.data.error_description) || "Giriş başarısız.");
+        }
+        state.token = result.data.token;
+        saveToken(result.data.token, isRememberChecked());
+        dom.loginPassword.value = "";
+        enterPanel();
+      })
+      .catch(function (err) {
+        showLoginError(err.message);
+      })
+      .finally(function () {
+        dom.emailLoginBtn.disabled = false;
+        dom.emailLoginBtn.textContent = "Giriş Yap";
+      });
   }
 
   function showLoginError(msg) {
@@ -160,7 +241,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
   }
 
   function logout() {
-    sessionStorage.removeItem(TOKEN_KEY);
+    clearStoredToken();
     state.token = null;
     dom.panelSection.hidden = true;
     dom.logoutBtn.hidden = true;
@@ -678,6 +759,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     bindCoverPositionEvents();
 
     dom.loginBtn.addEventListener("click", startLogin);
+    dom.emailLoginForm.addEventListener("submit", startEmailLogin);
     dom.logoutBtn.addEventListener("click", logout);
 
     dom.addBtn.addEventListener("click", function () { openEditModal(null); });
@@ -902,7 +984,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     cacheDom();
     bindStaticEvents();
 
-    var saved = sessionStorage.getItem(TOKEN_KEY);
+    var saved = loadStoredToken();
     if (saved) {
       state.token = saved;
       enterPanel();

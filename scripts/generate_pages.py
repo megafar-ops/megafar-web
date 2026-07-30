@@ -107,6 +107,9 @@ ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 ICON_WA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.83 14.05c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.77-4.06-4.92-4.25-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.02-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.12.65-.07.18-.19.76-.88.96-1.18.2-.3.4-.24.66-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>'
 ICON_MOON = '<svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>'
 ICON_SUN = '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+ICON_MOLD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg>'
+ICON_TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11"/><path d="M15 10h4l4 4v3h-8z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>'
+ICON_BOLT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>'
 
 
 def wa_href(lang):
@@ -301,6 +304,7 @@ def navbar_html(lang, active_key):
       </nav>
       <div class="navbar__actions">
         <div class="lang-switch" aria-label="%(lang_label)s">%(lang_switch)s</div>
+        <a class="navbar__wa" href="%(wa_href)s" target="_blank" rel="noopener" aria-label="%(ask_whatsapp)s">%(icon_wa)s</a>
         <button type="button" class="theme-toggle" data-theme-toggle aria-label="%(theme_toggle)s" aria-pressed="false">
           %(icon_moon)s
           %(icon_sun)s
@@ -316,6 +320,9 @@ def navbar_html(lang, active_key):
         "nav_links": nav_links_html,
         "lang_label": "Language" if lang != "tr" else "Dil seçimi",
         "lang_switch": lang_switch_html,
+        "wa_href": wa_href(lang),
+        "ask_whatsapp": t["ask_whatsapp"],
+        "icon_wa": ICON_WA,
         "theme_toggle": t["theme_toggle"],
         "icon_moon": ICON_MOON,
         "icon_sun": ICON_SUN,
@@ -352,15 +359,6 @@ def footer_html(lang, page_key):
           <li>%(icon_clock)s<span>%(hours)s</span></li>
         </ul>
       </div>
-      <div>
-        <h3>%(form_head)s</h3>
-        <form class="footer-form" action="mailto:%(email)s" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="%(label_name)s" required>
-          <input type="email" name="email" placeholder="%(label_email)s" required>
-          <textarea name="message" rows="2" placeholder="%(label_message)s" required></textarea>
-          <button type="submit">%(btn_send)s</button>
-        </form>
-      </div>
     </div>
     <div class="footer__bottom">%(copyright)s</div>
   </footer>''' % {
@@ -381,11 +379,6 @@ def footer_html(lang, page_key):
         "icon_clock": ICON_CLOCK,
         "hours": t["hours"],
         "copyright": t["copyright"],
-        "form_head": t["footer_form_head"],
-        "label_name": CONTACT_COPY[lang]["label_name"],
-        "label_email": CONTACT_COPY[lang]["label_email"],
-        "label_message": CONTACT_COPY[lang]["label_message"],
-        "btn_send": CONTACT_COPY[lang]["btn_send"],
     }
 
 
@@ -482,89 +475,215 @@ HOME_COPY = {
     "tr": {
         "title": "Mega Far — Kalıbından Aydınlatmasına Kendi İmalatımız",
         "desc": "Mega Far; LED aydınlatma, çakar ve kalıp imalatında kendi üretimiyle hızlı teslimat ve güçlü destek sunar.",
+        "eyebrow": "Kendi Kalıbımız, Kendi Üretimimiz",
         "h1": "Kalıbından Aydınlatmasına, Kendi İmalatımızla Yollardayız",
         "p": "Kaliteli ürünleri hızlı teslimat ve güçlü destek ile müşterilerimizle buluşturuyoruz.",
         "btn_products": "Ürünleri İncele",
         "btn_contact": "Bize Ulaşın",
-        "groups_title": "İmalat Gruplarımız",
-        "groups_desc": "Kendi kalıp ve üretim hattımızdan çıkan üç ana ürün grubu.",
-        "g1_h": "LED Aydınlatma &amp; Çakar", "g1_p": "Yüksek çıkışlı LED bar, sinyal ve çakar ürünleri.",
-        "g2_h": "Kalıp İmalatı", "g2_p": "Kendi kalıbımızdan çıkan gövde ve yedek parçalar.",
-        "g3_h": "Yeni Çıkanlar", "g3_p": "Üretim hattımıza yeni eklenen ürünler.",
+        "stat1_suffix": "Ürün Çeşidi",
+        "stat2_text": "Kendi Kalıp &amp; Üretim",
+        "stat3_text": "Hızlı Teslimat",
+        "featured_title": "Öne Çıkan Ürünler",
+        "featured_desc": "Üretim hattımızdan seçtiğimiz birkaç ürün — tamamı için katalogu inceleyebilirsiniz.",
+        "features_title": "Neden Mega Far?",
+        "features_desc": "Kalıptan montaja kadar her aşama kendi tesisimizde, aracı olmadan.",
+        "feat1_h": "Kendi Kalıp &amp; İmalat", "feat1_p": "Gövdeden yedek parçaya kadar tüm kalıplarımız kendi tesisimizde üretiliyor.",
+        "feat2_h": "Hızlı Teslimat", "feat2_p": "Stoktaki ürünlerde siparişiniz aynı gün kargoya verilir.",
+        "feat3_h": "LED &amp; Sinyalizasyon Uzmanlığı", "feat3_p": "Araç ve iş makinesi aydınlatmasında yıllara dayanan üretim tecrübesi.",
+        "feat4_h": "WhatsApp'tan Anında Destek", "feat4_p": "Sorularınıza dakikalar içinde, aracı olmadan doğrudan bizden yanıt alın.",
+        "cta_title": "Sorularınız mı var?",
+        "cta_text": "Ürün, fiyat veya stok durumu için hemen WhatsApp'tan yazın ya da iletişim bilgilerimizden bize ulaşın.",
+        "cta_link_label": "Tüm İletişim Bilgileri",
     },
     "en": {
         "title": "Mega Far — From Mold to Lighting, Our Own Manufacturing",
         "desc": "Mega Far delivers LED lighting, beacons and mold manufacturing with fast delivery and strong support.",
+        "eyebrow": "Our Own Mold, Our Own Manufacturing",
         "h1": "From Mold to Lighting, We're on the Road with Our Own Manufacturing",
         "p": "We bring quality products to our customers with fast delivery and strong support.",
         "btn_products": "View Products",
         "btn_contact": "Contact Us",
-        "groups_title": "Our Manufacturing Groups",
-        "groups_desc": "Three core product groups from our own mold and production line.",
-        "g1_h": "LED Lighting &amp; Beacons", "g1_p": "High-output LED bars, signal and beacon products.",
-        "g2_h": "Mold Manufacturing", "g2_p": "Housings and spare parts made from our own molds.",
-        "g3_h": "New Arrivals", "g3_p": "Newly added products from our production line.",
+        "stat1_suffix": "Product Range",
+        "stat2_text": "Own Mold &amp; Manufacturing",
+        "stat3_text": "Fast Delivery",
+        "featured_title": "Featured Products",
+        "featured_desc": "A few picks from our production line — browse the full catalog for more.",
+        "features_title": "Why Mega Far?",
+        "features_desc": "Every step, from mold to assembly, happens in our own facility.",
+        "feat1_h": "Own Mold &amp; Manufacturing", "feat1_p": "From housings to spare parts, every mold is produced in our own facility.",
+        "feat2_h": "Fast Delivery", "feat2_p": "In-stock orders ship the same day.",
+        "feat3_h": "LED &amp; Signaling Expertise", "feat3_p": "Years of manufacturing experience in vehicle and machinery lighting.",
+        "feat4_h": "Instant Support on WhatsApp", "feat4_p": "Get answers straight from us within minutes, no middleman.",
+        "cta_title": "Have Questions?",
+        "cta_text": "Message us on WhatsApp for products, pricing or stock, or reach us with the details below.",
+        "cta_link_label": "All Contact Details",
     },
     "ar": {
         "title": "ميغا فار — من القالب إلى الإضاءة، تصنيعنا الخاص",
         "desc": "تقدم ميغا فار إضاءة LED والومضات وتصنيع القوالب بتوصيل سريع ودعم قوي.",
+        "eyebrow": "قالبنا الخاص، تصنيعنا الخاص",
         "h1": "من القالب إلى الإضاءة، نمضي في الطريق بتصنيعنا الخاص",
         "p": "نقدم لعملائنا منتجات عالية الجودة مع توصيل سريع ودعم قوي.",
         "btn_products": "استعرض المنتجات",
         "btn_contact": "تواصل معنا",
-        "groups_title": "مجموعات التصنيع لدينا",
-        "groups_desc": "ثلاث مجموعات منتجات رئيسية من خط القالب والإنتاج الخاص بنا.",
-        "g1_h": "إضاءة LED والومضات", "g1_p": "قضبان LED عالية الإخراج ومنتجات الإشارة والومضات.",
-        "g2_h": "تصنيع القوالب", "g2_p": "هياكل وقطع غيار مصنوعة من قوالبنا الخاصة.",
-        "g3_h": "وصل حديثًا", "g3_p": "منتجات أضيفت حديثًا إلى خط إنتاجنا.",
+        "stat1_suffix": "تشكيلة منتجات",
+        "stat2_text": "قالب وتصنيع خاص بنا",
+        "stat3_text": "توصيل سريع",
+        "featured_title": "منتجات مميزة",
+        "featured_desc": "بعض المنتجات المختارة من خط إنتاجنا — تصفح الكتالوج الكامل لمزيد.",
+        "features_title": "لماذا ميغا فار؟",
+        "features_desc": "كل خطوة، من القالب إلى التركيب، تتم في منشأتنا الخاصة.",
+        "feat1_h": "قالب وتصنيع خاص بنا", "feat1_p": "من الهياكل إلى قطع الغيار، كل قالب يُصنع في منشأتنا الخاصة.",
+        "feat2_h": "توصيل سريع", "feat2_p": "الطلبات المتوفرة في المخزون تُشحن في نفس اليوم.",
+        "feat3_h": "خبرة في LED والإشارات", "feat3_p": "سنوات من الخبرة التصنيعية في إضاءة المركبات والآليات.",
+        "feat4_h": "دعم فوري عبر واتساب", "feat4_p": "احصل على إجابات مباشرة منا خلال دقائق، دون وسطاء.",
+        "cta_title": "لديك أسئلة؟",
+        "cta_text": "راسلنا عبر واتساب للاستفسار عن المنتجات أو الأسعار أو التوفر، أو تواصل معنا عبر البيانات أدناه.",
+        "cta_link_label": "جميع بيانات التواصل",
     },
 }
 
 
+def hero_visual_item_html(product, index, lang):
+    name = pick_lang(product, "name", lang)
+    img = abs_url(product.get("front_image")) or ""
+    return (
+        '<div class="hero__visual-item" data-index="%d" role="button" tabindex="0" aria-label="%s">'
+        % (index, esc(name))
+        + '<img src="%s" alt="" loading="lazy"></div>' % esc(img)
+    )
+
+
+def marquee_item_html(product, lang):
+    name = pick_lang(product, "name", lang)
+    img = abs_url(product.get("front_image")) or ""
+    return (
+        '<a class="marquee__item" href="%s">' % esc(PAGE_PATHS["products"][lang])
+        + '<span class="marquee__item-media"><img src="%s" alt="" loading="lazy"></span>' % esc(img)
+        + '<span class="marquee__item-name">%s</span>' % esc(name)
+        + "</a>"
+    )
+
+
+def feature_item_html(icon, heading, text):
+    return (
+        '<div class="features__item">'
+        + '<span class="features__icon">%s</span>' % icon
+        + "<h3>%s</h3>" % heading
+        + "<p>%s</p>" % text
+        + "</div>"
+    )
+
+
 def build_home(lang):
     c = HOME_COPY[lang]
+    pc = PRODUCTS_COPY[lang]
+    t = T[lang]
+    products = load_products()
+    indexed_with_image = [(i, p) for i, p in enumerate(products) if p.get("front_image")]
+    products_with_image = [p for p in products if p.get("front_image")]
+
+    hero_visual_html = "\n".join(hero_visual_item_html(p, i, lang) for i, p in indexed_with_image[:6])
+
+    featured = list(enumerate(products))[:8]
+    featured_cards_html = "\n".join(product_card_html(p, i, lang) for i, p in featured)
+
+    marquee_items_html = "\n".join(marquee_item_html(p, lang) for p in products_with_image)
+    marquee_section = ""
+    if marquee_items_html:
+        marquee_section = '''
+    <section class="marquee-section">
+      <div class="marquee">
+        <div class="marquee__track">
+%(items)s
+%(items)s
+        </div>
+      </div>
+    </section>''' % {"items": marquee_items_html}
+
+    features_html = "\n".join([
+        feature_item_html(ICON_MOLD, c["feat1_h"], c["feat1_p"]),
+        feature_item_html(ICON_TRUCK, c["feat2_h"], c["feat2_p"]),
+        feature_item_html(ICON_BOLT, c["feat3_h"], c["feat3_p"]),
+        feature_item_html(ICON_WA, c["feat4_h"], c["feat4_p"]),
+    ])
+
     body = '''  <main>
     <section class="hero container">
-      <h1>%(h1)s</h1>
-      <p>%(p)s</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="%(products_url)s">%(btn_products)s</a>
-        <a class="btn btn--ghost" href="%(contact_url)s">%(btn_contact)s</a>
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <span class="hero__eyebrow mono">%(eyebrow)s</span>
+          <h1>%(h1)s</h1>
+          <p>%(p)s</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="%(products_url)s">%(btn_products)s</a>
+            <a class="btn btn--ghost" href="%(contact_url)s">%(btn_contact)s</a>
+          </div>
+          <div class="hero__stats">
+            <span class="hero__stat">%(product_count)d+ %(stat1_suffix)s</span>
+            <span class="hero__stat">%(stat2_text)s</span>
+            <span class="hero__stat">%(stat3_text)s</span>
+          </div>
+        </div>
+        <div class="hero__visual" data-hero-visual>
+          <div class="hero__visual-grid">
+%(hero_visual)s
+          </div>
+          <button type="button" class="hero__visual-nav hero__visual-nav--prev" data-hero-nav="-1" aria-label="%(nav_prev)s">&#8249;</button>
+          <button type="button" class="hero__visual-nav hero__visual-nav--next" data-hero-nav="1" aria-label="%(nav_next)s">&#8250;</button>
+        </div>
       </div>
     </section>
 
     <section class="section container">
       <div class="section__head">
-        <h2>%(groups_title)s</h2>
-        <p>%(groups_desc)s</p>
+        <h2>%(featured_title)s</h2>
+        <p>%(featured_desc)s</p>
       </div>
-      <div class="groups">
-        <a class="groups__item" href="%(products_url)s">
-          <span class="tag mono">01</span>
-          <h3>%(g1_h)s</h3>
-          <p>%(g1_p)s</p>
-        </a>
-        <a class="groups__item" href="%(products_url)s">
-          <span class="tag mono">02</span>
-          <h3>%(g2_h)s</h3>
-          <p>%(g2_p)s</p>
-        </a>
-        <a class="groups__item" href="%(products_url)s">
-          <span class="tag mono">03</span>
-          <h3>%(g3_h)s</h3>
-          <p>%(g3_p)s</p>
-        </a>
+      <ul class="grid" data-product-grid aria-label="%(grid_label)s">
+%(featured_cards)s
+      </ul>
+    </section>
+
+    <section class="section container">
+      <div class="section__head">
+        <h2>%(features_title)s</h2>
+        <p>%(features_desc)s</p>
+      </div>
+      <div class="features">
+%(features)s
       </div>
     </section>
-  </main>''' % {
-        "h1": c["h1"], "p": c["p"],
+%(marquee_section)s
+    <section class="section cta-contact container">
+      <div class="cta-contact__box">
+        <h2>%(cta_title)s</h2>
+        <p>%(cta_text)s</p>
+        <div class="cta-contact__actions">
+          <a class="btn-wa" href="%(wa_href)s" target="_blank" rel="noopener">%(icon_wa)s<span>%(ask_whatsapp)s</span></a>
+          <a class="cta-contact__link" href="%(contact_url)s">%(cta_link_label)s &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+%(lightbox)s''' % {
+        "eyebrow": c["eyebrow"], "h1": c["h1"], "p": c["p"],
         "products_url": PAGE_PATHS["products"][lang],
         "contact_url": PAGE_PATHS["contact"][lang],
         "btn_products": c["btn_products"], "btn_contact": c["btn_contact"],
-        "groups_title": c["groups_title"], "groups_desc": c["groups_desc"],
-        "g1_h": c["g1_h"], "g1_p": c["g1_p"],
-        "g2_h": c["g2_h"], "g2_p": c["g2_p"],
-        "g3_h": c["g3_h"], "g3_p": c["g3_p"],
+        "product_count": len(products), "stat1_suffix": c["stat1_suffix"],
+        "stat2_text": c["stat2_text"], "stat3_text": c["stat3_text"],
+        "hero_visual": hero_visual_html,
+        "nav_prev": pc["nav_prev"], "nav_next": pc["nav_next"],
+        "featured_title": c["featured_title"], "featured_desc": c["featured_desc"],
+        "grid_label": pc["grid_label"], "featured_cards": featured_cards_html,
+        "features_title": c["features_title"], "features_desc": c["features_desc"],
+        "features": features_html,
+        "marquee_section": marquee_section,
+        "cta_title": c["cta_title"], "cta_text": c["cta_text"], "cta_link_label": c["cta_link_label"],
+        "wa_href": wa_href(lang), "icon_wa": ICON_WA, "ask_whatsapp": t["ask_whatsapp"],
+        "lightbox": lightbox_dialog_html(lang, pc["dialog_label"]),
     }
     return page_shell(lang, "home", c["title"], c["desc"], body)
 
@@ -670,7 +789,7 @@ def build_contact(lang):
       <h1>%(h1)s</h1>
       <p>%(p)s</p>
     </div>
-    <div class="contact" style="padding-bottom: 64px;">
+    <div class="contact">
       <div class="contact__info">
         <ul>
           <li>%(icon_phone)s<a href="tel:+%(wa_number)s">%(phone)s</a></li>
@@ -680,9 +799,16 @@ def build_contact(lang):
           <li>%(icon_clock)s<span>%(hours)s</span></li>
         </ul>
       </div>
-      <div class="map-embed">
-        <iframe src="%(map_src)s" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mega Far - Google Maps"></iframe>
-      </div>
+      <form class="contact-form" action="mailto:%(email)s" method="post" enctype="text/plain">
+        <h3>%(form_head)s</h3>
+        <input type="text" name="name" placeholder="%(label_name)s" required>
+        <input type="email" name="email" placeholder="%(label_email)s" required>
+        <textarea name="message" rows="5" placeholder="%(label_message)s" required></textarea>
+        <button type="submit" class="btn btn--primary">%(btn_send)s</button>
+      </form>
+    </div>
+    <div class="map-embed" style="margin-bottom: 64px;">
+      <iframe src="%(map_src)s" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mega Far - Google Maps"></iframe>
     </div>
   </main>''' % {
         "h1": c["h1"], "p": c["p"],
@@ -691,6 +817,9 @@ def build_contact(lang):
         "icon_insta": ICON_INSTA, "insta_url": INSTAGRAM_URL, "insta_handle": INSTAGRAM_HANDLE,
         "icon_pin": ICON_PIN, "address": ADDRESS,
         "icon_clock": ICON_CLOCK, "hours": T[lang]["hours"],
+        "form_head": T[lang]["footer_form_head"],
+        "label_name": c["label_name"], "label_email": c["label_email"], "label_message": c["label_message"],
+        "btn_send": c["btn_send"],
         "map_src": MAP_SRC,
     }
     return page_shell(lang, "contact", c["title"], c["desc"], body)
@@ -734,32 +863,9 @@ PRODUCTS_COPY = {
 }
 
 
-def build_products(lang):
-    c = PRODUCTS_COPY[lang]
+def lightbox_dialog_html(lang, dialog_label):
     t = T[lang]
-    products = load_products()
-
-    cards_html = "\n".join(
-        product_card_html(product, i, lang) for i, product in enumerate(products)
-    )
-    jsonld_html = "\n".join(product_jsonld_html(product, lang) for product in products)
-
-    og_image = None
-    if products and products[0].get("front_image"):
-        og_image = abs_url(products[0]["front_image"])
-
-    body = '''  <main class="container">
-    <div class="page-head">
-      <h1>%(h1)s</h1>
-      <p>%(p)s</p>
-    </div>
-
-    <ul class="grid" data-product-grid aria-label="%(grid_label)s">
-%(cards)s
-    </ul>
-  </main>
-
-  <div class="lightbox" data-lightbox>
+    return '''  <div class="lightbox" data-lightbox>
     <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="%(dialog_label)s">
       <span class="lightbox__corner lightbox__corner--tl"></span>
       <span class="lightbox__corner lightbox__corner--tr"></span>
@@ -784,9 +890,39 @@ def build_products(lang):
       </div>
     </div>
   </div>''' % {
-        "h1": c["h1"], "p": c["p"], "grid_label": c["grid_label"], "dialog_label": c["dialog_label"],
-        "cards": cards_html,
+        "dialog_label": esc(dialog_label),
         "close": t["close"], "icon_wa": ICON_WA, "ask_whatsapp": t["ask_whatsapp"],
+    }
+
+
+def build_products(lang):
+    c = PRODUCTS_COPY[lang]
+    products = load_products()
+
+    cards_html = "\n".join(
+        product_card_html(product, i, lang) for i, product in enumerate(products)
+    )
+    jsonld_html = "\n".join(product_jsonld_html(product, lang) for product in products)
+
+    og_image = None
+    if products and products[0].get("front_image"):
+        og_image = abs_url(products[0]["front_image"])
+
+    body = '''  <main class="container">
+    <div class="page-head">
+      <h1>%(h1)s</h1>
+      <p>%(p)s</p>
+    </div>
+
+    <ul class="grid" data-product-grid aria-label="%(grid_label)s">
+%(cards)s
+    </ul>
+  </main>
+
+%(lightbox)s''' % {
+        "h1": c["h1"], "p": c["p"], "grid_label": c["grid_label"],
+        "cards": cards_html,
+        "lightbox": lightbox_dialog_html(lang, c["dialog_label"]),
     }
     return page_shell(lang, "products", c["title"], c["desc"], body, extra_head=jsonld_html, og_image=og_image)
 
