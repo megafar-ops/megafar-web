@@ -1,28 +1,6 @@
 {
   "products": [
     {
-      "id": "prod-ms7kx2b3672v",
-      "code": "",
-      "name_tr": "1-1 LED'li Mini Takoz 12-24V Kırmızı Beyaz Renk",
-      "name_en": "1-1 LED Mini Wedge 12-24V Red White Color",
-      "name_ar": "1-1 مصباح LED مصغر 12-24 فولت أحمر أبيض",
-      "description_tr": "Kompakt tasarımıyla dikkat çeken bu LED'li mini takoz, 12-24V voltaj aralığında çalışarak hem kırmızı hem de beyaz ışık sunar.",
-      "description_en": "This compact LED mini wedge operates within a 12-24V voltage range, providing both red and white light.",
-      "description_ar": "يعمل هذا المصباح LED المصغر بتصميمه المدمج ضمن نطاق جهد 12-24 فولت، مما يوفر ضوءًا أحمر وأبيض.",
-      "price": null,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419908182-WhatsApp_Image_2026-07-30_at_16.32.04__1_-JWmvpyEFwZUNpScZGXVY0Zktvqa2k2.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419909861-WhatsApp_Image_2026-07-30_at_16.32.04-L0Six9QfYmS3v6r9Mxebw33brTvJEA.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419911071-WhatsApp_Video_2026-07-30_at_16.32.04-bTfGu24h4QKSQP2JwZrj6tRfGeLt32.mp4",
-      "sort_order": 1,
-      "created_at": "2026-07-30T13:58:20.818Z"
-    },
-    {
       "id": "prod-ms7kwy1ghaml",
       "code": "",
       "name_tr": "1 LED'li Yan Sinyal 12-24V Sarı Renk",
@@ -41,8 +19,30 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419904661-WhatsApp_Image_2026-07-30_at_00.21.56-TXwiA7AgvMifMrbJXFDAzC7zQmVwug.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419905975-WhatsApp_Video_2026-07-30_at_00.22.00-eTQ5VOyU6Oh43cma1VzB2rpe4Udedw.mp4",
-      "sort_order": 2,
+      "sort_order": 1,
       "created_at": "2026-07-30T13:58:19.818Z"
+    },
+    {
+      "id": "prod-ms7kx2b3672v",
+      "code": "",
+      "name_tr": "1-1 LED'li Mini Takoz 12-24V Kırmızı Beyaz Renk",
+      "name_en": "1-1 LED Mini Wedge 12-24V Red White Color",
+      "name_ar": "1-1 مصباح LED مصغر 12-24 فولت أحمر أبيض",
+      "description_tr": "Kompakt tasarımıyla dikkat çeken bu LED'li mini takoz, 12-24V voltaj aralığında çalışarak hem kırmızı hem de beyaz ışık sunar.",
+      "description_en": "This compact LED mini wedge operates within a 12-24V voltage range, providing both red and white light.",
+      "description_ar": "يعمل هذا المصباح LED المصغر بتصميمه المدمج ضمن نطاق جهد 12-24 فولت، مما يوفر ضوءًا أحمر وأبيض.",
+      "price": null,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419908182-WhatsApp_Image_2026-07-30_at_16.32.04__1_-JWmvpyEFwZUNpScZGXVY0Zktvqa2k2.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419909861-WhatsApp_Image_2026-07-30_at_16.32.04-L0Six9QfYmS3v6r9Mxebw33brTvJEA.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419911071-WhatsApp_Video_2026-07-30_at_16.32.04-bTfGu24h4QKSQP2JwZrj6tRfGeLt32.mp4",
+      "sort_order": 2,
+      "created_at": "2026-07-30T13:58:20.818Z"
     },
     {
       "id": "prod-ms7kwu2o6m5y",
