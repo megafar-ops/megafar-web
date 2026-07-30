@@ -359,18 +359,19 @@
       "description_tr": "Yüksek görünürlük sağlayan 9 LED'li parmak lambamız, 12-24V voltaj aralığında çalışarak güvenliğinizi artırır.",
       "description_en": "Our 9 LED finger lamp, operating at 12-24V, enhances your safety with high visibility.",
       "description_ar": "يعمل مصباح الإصبع LED 9 لدينا بجهد 12-24 فولت ويعزز سلامتك مع رؤية عالية.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419979197-WhatsApp_Image_2026-07-30_at_00.10.34__1_-AdRdPxwhthLgPHsUSBurOJN4uMfZxo.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419980478-WhatsApp_Image_2026-07-30_at_00.10.34-FfgcRuaHKPKXgswkyRLx5E2ZFWOHok.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419980478-WhatsApp_Image_2026-07-30_at_00.10.34-FfgcRuaHKPKXgswkyRLx5E2ZFWOHok.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419979197-WhatsApp_Image_2026-07-30_at_00.10.34__1_-AdRdPxwhthLgPHsUSBurOJN4uMfZxo.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419982161-WhatsApp_Video_2026-07-30_at_00.10.37-QSNR9DaMyKJ4i1I8fhD7G0WGTJkX5t.mp4",
       "sort_order": 17,
-      "created_at": "2026-07-30T13:58:34.818Z"
+      "created_at": "2026-07-30T13:58:34.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kynlbwi3e",
