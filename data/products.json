@@ -149,9 +149,11 @@
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": null,
-      "back_images": [],
-      "video": null,
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785411361754-WhatsApp_Image_2026-07-30_at_00.39.04-TgfIs0Z4VxDZHuCthGVWT86nDAQTpO.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785411368321-WhatsApp_Image_2026-07-30_at_00.39.0-7tmeVNEFzmrGuAi99oQiqquAXkoipb.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785411374272-WhatsApp_Video_2026-07-30_at_00.39.11-cOR4xxisglaWxvLNnHNAo13RgrlWPh.mp4",
       "sort_order": 7,
       "created_at": "2026-07-30T11:04:34.722Z"
     }
