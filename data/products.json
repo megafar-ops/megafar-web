@@ -401,18 +401,19 @@
       "description_tr": "Yüksek kaliteli 9 LED'li parmak lamba, 12-24V voltaj aralığında mor renkte mükemmel aydınlatma sağlar.",
       "description_en": "High-quality 9 LED finger lamp provides excellent lighting in purple color within the 12-24V voltage range.",
       "description_ar": "يوفر مصباح الإصبع LED 9 عالي الجودة إضاءة ممتازة باللون الأرجواني ضمن نطاق جهد 12-24 فولت.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419987956-WhatsApp_Image_2026-07-30_at_00.10.20__1_-THJMu7TLyv3gGlVsW54x5tJyuEax82.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419989328-WhatsApp_Image_2026-07-30_at_00.10.20-vjYg2rHZZswUSLN3HNyZauQnd9HDMQ.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419989328-WhatsApp_Image_2026-07-30_at_00.10.20-vjYg2rHZZswUSLN3HNyZauQnd9HDMQ.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419987956-WhatsApp_Image_2026-07-30_at_00.10.20__1_-THJMu7TLyv3gGlVsW54x5tJyuEax82.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419990474-WhatsApp_Video_2026-07-30_at_00.10.23-ZtVKyioa7XX0b36JkYcRqZkAjewBZd.mp4",
       "sort_order": 19,
-      "created_at": "2026-07-30T13:58:36.818Z"
+      "created_at": "2026-07-30T13:58:36.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kyv4mo5b8",
