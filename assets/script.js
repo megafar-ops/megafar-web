@@ -30,9 +30,18 @@
   }
 
   // name/desc dil bazli obje ({tr,en,ar}) - pick() ile o anki dile cevrilir.
+  // Mevcut dilde alan bossa TR > EN > AR sirasiyla ilk dolu deger kullanilir;
+  // hicbiri dolu degilse bos string donulur (hata firlatilmaz).
+  var LANG_FALLBACK_ORDER = ["tr", "en", "ar"];
   function pick(field) {
     if (typeof field === "string") return field;
-    return field[currentLang()] || field.tr;
+    if (!field) return "";
+    var lang = currentLang();
+    if (field[lang]) return field[lang];
+    for (var i = 0; i < LANG_FALLBACK_ORDER.length; i++) {
+      if (field[LANG_FALLBACK_ORDER[i]]) return field[LANG_FALLBACK_ORDER[i]];
+    }
+    return "";
   }
 
   // frontImage/backImages/video degerleri ya "/assets/..." ile baslayan
@@ -52,7 +61,7 @@
     return {
       id: raw.id || raw.code,
       code: raw.code || "",
-      name: { tr: raw.name_tr || "", en: raw.name_en || raw.name_tr || "", ar: raw.name_ar || raw.name_tr || "" },
+      name: { tr: raw.name_tr || "", en: raw.name_en || "", ar: raw.name_ar || "" },
       price: raw.price,
       currency: raw.currency || "TRY",
       accent: raw.accent || "white",
@@ -60,7 +69,7 @@
       frontImage: raw.front_image,
       backImages: raw.back_images || [],
       video: raw.video || null,
-      desc: { tr: raw.desc_tr || "", en: raw.desc_en || raw.desc_tr || "", ar: raw.desc_ar || raw.desc_tr || "" }
+      desc: { tr: raw.description_tr || "", en: raw.description_en || "", ar: raw.description_ar || "" }
     };
   }
 
