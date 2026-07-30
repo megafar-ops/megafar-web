@@ -1081,18 +1081,19 @@
       "description_tr": "Araçlarınız için mükemmel görünürlük sağlayan sarı renkli yan sinyal.",
       "description_en": "Yellow side marker providing excellent visibility for your vehicles.",
       "description_ar": "علامة جانبية صفراء توفر رؤية ممتازة لمركباتك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420144692-WhatsApp_Image_2026-07-30_at_00.37.55__1_-uCEHn5h4ui3Tgz9lPNlUV6pwYppEkR.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420146032-WhatsApp_Image_2026-07-30_at_00.37.55-g7HGP5xjhLS83780cEeSuRyEHRc7Xz.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420146032-WhatsApp_Image_2026-07-30_at_00.37.55-g7HGP5xjhLS83780cEeSuRyEHRc7Xz.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420144692-WhatsApp_Image_2026-07-30_at_00.37.55__1_-uCEHn5h4ui3Tgz9lPNlUV6pwYppEkR.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420147332-WhatsApp_Video_2026-07-30_at_00.38.00-TZvTXmxLJYtnqA4HRpnaF3Nk65i1Dr.mp4",
       "sort_order": 50,
-      "created_at": "2026-07-30T13:59:07.818Z"
+      "created_at": "2026-07-30T13:59:07.818Z",
+      "front_image_position": "100% 16%"
     },
     {
       "id": "prod-ms7l28saox79",
