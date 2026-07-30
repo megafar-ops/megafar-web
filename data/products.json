@@ -423,18 +423,19 @@
       "description_tr": "Yüksek görünürlük sağlayan 9 LED'li parmak lambamız, 12-24V voltaj aralığında çalışarak her türlü otomotiv uygulamanız için idealdir.",
       "description_en": "Our 9 LED finger lamp provides high visibility and operates within a voltage range of 12-24V, making it ideal for all your automotive applications.",
       "description_ar": "يوفر مصباح الإصبع LED 9 رؤية عالية ويعمل ضمن نطاق جهد 12-24 فولت، مما يجعله مثاليًا لجميع تطبيقات السيارات الخاصة بك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419992383-WhatsApp_Image_2026-07-30_at_00.11.23__1_-UbJV0FxSQGIbmmL2Hny5GRhaXhfdXl.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419993713-WhatsApp_Image_2026-07-30_at_00.11.23-0gJk6W0zi1l5BgFmL1ONoyJoCWxw9S.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419993713-WhatsApp_Image_2026-07-30_at_00.11.23-0gJk6W0zi1l5BgFmL1ONoyJoCWxw9S.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419992383-WhatsApp_Image_2026-07-30_at_00.11.23__1_-UbJV0FxSQGIbmmL2Hny5GRhaXhfdXl.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419995058-WhatsApp_Video_2026-07-30_at_00.11.27-g5MfptkuxqRwAKkZ8rwziTGCDoUV7N.mp4",
       "sort_order": 20,
-      "created_at": "2026-07-30T13:58:37.818Z"
+      "created_at": "2026-07-30T13:58:37.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kywzes0to",
