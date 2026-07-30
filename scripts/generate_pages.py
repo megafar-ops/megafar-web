@@ -411,7 +411,7 @@ def build_home(lang):
 
 
 # =========================================================
-# ABOUT (Hakkımızda) — Misyon/Vizyon/Degerler still pending from client
+# ABOUT (Hakkımızda)
 # =========================================================
 
 ABOUT_COPY = {
@@ -419,28 +419,34 @@ ABOUT_COPY = {
         "title": "Hakkımızda — Mega Far",
         "desc": "Mega Far'ın misyonu, vizyonu ve değerleri.",
         "h1": "Hakkımızda",
-        "note": "Not: Misyon / vizyon / değerler metinlerini iletmeni bekliyorum — onları aldığımda bu üç kutuyu senin verdiğin kesin metinle dolduracağım. Şimdilik yer tutucu (placeholder) olarak duruyor.",
-        "mission_h": "Misyon", "mission_p": "[Misyon metni buraya gelecek]",
-        "vision_h": "Vizyon", "vision_p": "[Vizyon metni buraya gelecek]",
-        "values_h": "Değerler", "values_p": "[Değerler metni buraya gelecek]",
+        "mission_h": "Misyon",
+        "mission_p": "Araç sahiplerinin ve sanayi sektörünün ihtiyaç duyduğu yüksek dayanıklılığa sahip LED ve sinyalizasyon ürünlerini, aracı olmadan, doğrudan imalat kalitesi ve ulaşılabilir fiyatlarla sunmak.",
+        "vision_h": "Vizyon",
+        "vision_p": "Kendi kalıp imalatı yeteneklerimizi sürekli geliştirerek, Türkiye'de araç aydınlatma ve özel plastik kalıp dendiğinde akla gelen, kalitesiyle referans gösterilen lider bir üretici olmak.",
+        "values_h": "Değerler",
+        "values_p": "Yerli üretim gücü, kalıptan montaja kusursuz işçilik, zorlu yol şartlarına dayanıklılık ve şeffaf esnaf ahlakı.",
     },
     "en": {
         "title": "About Us — Mega Far",
         "desc": "Mega Far's mission, vision and values.",
         "h1": "About Us",
-        "note": "Note: mission / vision / values copy is still pending from the client — placeholder for now.",
-        "mission_h": "Mission", "mission_p": "[Mission text goes here]",
-        "vision_h": "Vision", "vision_p": "[Vision text goes here]",
-        "values_h": "Values", "values_p": "[Values text goes here]",
+        "mission_h": "Mission",
+        "mission_p": "To offer vehicle owners and the industrial sector the high-durability LED and signaling products they need — direct from our own manufacturing, without intermediaries, at accessible prices.",
+        "vision_h": "Vision",
+        "vision_p": "By continuously advancing our own mold manufacturing capabilities, to become the leading manufacturer in Turkey that comes to mind for vehicle lighting and custom plastic molding — a name recognized as a benchmark for quality.",
+        "values_h": "Values",
+        "values_p": "Domestic manufacturing strength, flawless craftsmanship from mold to assembly, durability against the harshest road conditions, and transparent, honest business practice.",
     },
     "ar": {
         "title": "من نحن — ميغا فار",
         "desc": "رسالة ورؤية وقيم ميغا فار.",
         "h1": "من نحن",
-        "note": "ملاحظة: نص الرسالة / الرؤية / القيم بانتظار العميل — نص مؤقت حاليًا.",
-        "mission_h": "الرسالة", "mission_p": "[نص الرسالة هنا]",
-        "vision_h": "الرؤية", "vision_p": "[نص الرؤية هنا]",
-        "values_h": "القيم", "values_p": "[نص القيم هنا]",
+        "mission_h": "الرسالة",
+        "mission_p": "تقديم منتجات LED والإشارات عالية التحمل التي يحتاجها أصحاب المركبات والقطاع الصناعي، مباشرة من تصنيعنا الخاص دون وسطاء، وبجودة تصنيع حقيقية وأسعار في متناول الجميع.",
+        "vision_h": "الرؤية",
+        "vision_p": "أن نكون، من خلال التطوير المستمر لقدراتنا الخاصة في تصنيع القوالب، الشركة الرائدة في تركيا التي يُشار إليها فور الحديث عن إضاءة المركبات وقوالب البلاستيك المخصصة، والمرجع الذي يُستشهد بجودته.",
+        "values_h": "القيم",
+        "values_p": "قوة الإنتاج المحلي، إتقان لا تشوبه شائبة من القالب إلى التركيب، التحمل في أقسى ظروف الطريق، وأخلاقيات عمل شفافة وأمينة.",
     },
 }
 
@@ -450,7 +456,6 @@ def build_about(lang):
     body = '''  <main class="container">
     <div class="page-head">
       <h1>%(h1)s</h1>
-      <p><em>%(note)s</em></p>
     </div>
     <div class="trio" style="padding-bottom: 64px;">
       <div class="trio__item">
@@ -467,7 +472,7 @@ def build_about(lang):
       </div>
     </div>
   </main>''' % c
-    return page_shell(lang, "about", c["title"], c["desc"], body, robots="noindex")
+    return page_shell(lang, "about", c["title"], c["desc"], body)
 
 
 # =========================================================
