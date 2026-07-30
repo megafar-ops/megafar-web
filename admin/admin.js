@@ -1,10 +1,16 @@
 /* =========================================================
-   MEGA FAR — admin panel mantigi (vanilla JS, kutuphane yok)
+   MEGA FAR — admin panel mantigi (vanilla JS)
    Auth: /api/auth + /api/callback ile ayni postMessage el sikismasi
    (Decap/Sveltia CMS'in kullandigi protokolle birebir uyumlu).
    Veri: data/products.json GitHub Contents API uzerinden dogrudan
    tarayicidan okunur/yazilir (backend: github modeliyle tutarli).
+   Yukleme: Vercel Blob'un client-upload akisi (@vercel/blob/client) -
+   dosya baytlari dogrudan tarayicidan Blob'a gider, bizim /api/upload
+   fonksiyonumuz sadece kucuk bir token uretir (Vercel serverless
+   fonksiyonlarindaki ~4.5MB govde limitine hic takilmadan).
    ========================================================= */
+
+import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
 (function () {
   "use strict";
@@ -248,18 +254,18 @@
   /* ---------------- upload ---------------- */
 
   function uploadFile(file) {
-    var fd = new FormData();
-    fd.append("file", file);
-    return fetch("/api/upload", {
-      method: "POST",
-      headers: { Authorization: "token " + state.token },
-      body: fd
+    var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    var pathname = "products/" + Date.now() + "-" + safeName;
+
+    return upload(pathname, file, {
+      access: "public",
+      handleUploadUrl: "/api/upload",
+      clientPayload: JSON.stringify({ githubToken: state.token })
     })
-      .then(function (res) {
-        if (!res.ok) return res.json().then(function (e) { throw new Error(e.error || "HTTP " + res.status); });
-        return res.json();
-      })
-      .then(function (data) { return data.url; });
+      .then(function (blob) { return blob.url; })
+      .catch(function (err) {
+        throw new Error(err && err.message ? err.message : "Yukleme basarisiz oldu.");
+      });
   }
 
   /* ---------------- sort / filter / render ---------------- */
