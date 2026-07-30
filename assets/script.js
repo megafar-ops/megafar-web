@@ -203,8 +203,12 @@
     }
 
     if (slide.type === "video") {
+      // controls kasten yok: urunler sessiz, dongu halinde oynayan
+      // vitrin videolari - kullaniciya ses acma/kapama dugmesi hic
+      // gosterilmiyor, boylece video dosyasinda ses izi olsa bile
+      // duyulma ihtimali kalmiyor.
       stage.innerHTML =
-        '<video src="' + resolveAsset(slide.src) + '" autoplay muted loop playsinline controls></video>' + lightboxNavButtonsHtml();
+        '<video src="' + resolveAsset(slide.src) + '" autoplay muted loop playsinline></video>' + lightboxNavButtonsHtml();
       var video = stage.querySelector("video");
       video.muted = true;
       video.addEventListener("error", function () {

@@ -278,6 +278,59 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       .catch(function () { return null; });
   }
 
+  // Telefon fotograflari genelde gereksiz yere buyuk (birkac MB, 3000px+)
+  // oluyor. Yuklemeden once canvas ile makul bir boyuta indirip JPEG
+  // olarak yeniden kodluyoruz - kutuphane yok, tum tarayicilarda calisir.
+  // SVG (vektor, zaten kucuk) ve GIF (canvas sadece ilk kareyi yakalar,
+  // animasyonu bozar) sikistirmadan atlanir.
+  var COMPRESS_MAX_DIMENSION = 1600;
+  var COMPRESS_QUALITY = 0.82;
+
+  function compressImage(file) {
+    if (!file.type || file.type === "image/svg+xml" || file.type === "image/gif") {
+      return Promise.resolve(file);
+    }
+    if (typeof createImageBitmap !== "function") {
+      return Promise.resolve(file);
+    }
+
+    return createImageBitmap(file)
+      .catch(function () { return null; })
+      .then(function (bitmap) {
+        if (!bitmap) return file;
+
+        var scale = Math.min(1, COMPRESS_MAX_DIMENSION / Math.max(bitmap.width, bitmap.height));
+        var targetW = Math.max(1, Math.round(bitmap.width * scale));
+        var targetH = Math.max(1, Math.round(bitmap.height * scale));
+
+        var canvas = document.createElement("canvas");
+        canvas.width = targetW;
+        canvas.height = targetH;
+        var ctx = canvas.getContext("2d");
+        // Saydam PNG'lerde kenarlarin siyaha dusmemesi icin beyaz zemin.
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, targetW, targetH);
+        ctx.drawImage(bitmap, 0, 0, targetW, targetH);
+        if (bitmap.close) bitmap.close();
+
+        return new Promise(function (resolve) {
+          canvas.toBlob(
+            function (blob) {
+              if (!blob || blob.size >= file.size) {
+                resolve(file);
+                return;
+              }
+              var newName = file.name.replace(/\.\w+$/, "") + ".jpg";
+              resolve(new File([blob], newName, { type: "image/jpeg" }));
+            },
+            "image/jpeg",
+            COMPRESS_QUALITY
+          );
+        });
+      })
+      .catch(function () { return file; });
+  }
+
   function uploadFile(file, onProgress) {
     var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     var pathname = "products/" + Date.now() + "-" + safeName;
@@ -657,10 +710,13 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       state.draftImages.push(entry);
       renderImageGallery();
 
-      uploadFile(file, function (percent) {
-        entry.progress = percent;
-        renderImageGallery();
-      })
+      compressImage(file)
+        .then(function (fileToUpload) {
+          return uploadFile(fileToUpload, function (percent) {
+            entry.progress = percent;
+            renderImageGallery();
+          });
+        })
         .then(function (url) {
           entry.url = url;
           entry.uploading = false;
