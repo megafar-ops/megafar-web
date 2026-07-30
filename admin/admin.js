@@ -25,7 +25,8 @@
     sha: null,
     products: [],
     editingId: null,
-    draft: null
+    draft: null,
+    draftImages: []
   };
 
   var draggingId = null;
@@ -58,13 +59,11 @@
     dom.deleteBtn = document.querySelector("[data-delete-btn]");
     dom.cancelBtn = document.querySelector("[data-cancel-btn]");
 
-    dom.frontPreview = document.querySelector("[data-front-preview]");
-    dom.frontInput = document.querySelector("[data-front-input]");
-    dom.frontRemove = document.querySelector("[data-front-remove]");
-    dom.backList = document.querySelector("[data-back-list]");
-    dom.backInput = document.querySelector("[data-back-input]");
+    dom.imageGallery = document.querySelector("[data-image-gallery]");
+    dom.imageInput = document.querySelector("[data-image-input]");
     dom.videoPreview = document.querySelector("[data-video-preview]");
     dom.videoInput = document.querySelector("[data-video-input]");
+    dom.videoAdd = document.querySelector("[data-video-add]");
     dom.videoRemove = document.querySelector("[data-video-remove]");
     dom.tagDatalist = document.querySelector("[data-tag-datalist]");
   }
@@ -389,6 +388,12 @@
     state.editingId = isNewProduct ? null : product.id;
     state.draft = isNewProduct ? blankDraft() : JSON.parse(JSON.stringify(product));
 
+    state.draftImages = [];
+    if (state.draft.front_image) state.draftImages.push(state.draft.front_image);
+    if (state.draft.back_images && state.draft.back_images.length) {
+      state.draftImages = state.draftImages.concat(state.draft.back_images);
+    }
+
     dom.modalTitle.textContent = isNewProduct ? "Yeni Ürün Ekle" : "Ürün Düzenle";
     dom.deleteBtn.hidden = isNewProduct;
     dom.modalError.hidden = true;
@@ -403,8 +408,7 @@
     }
 
     updateFieldDots();
-    renderFrontPreview();
-    renderBackList();
+    renderImageGallery();
     renderVideoPreview();
 
     dom.modal.classList.add("is-open");
@@ -414,6 +418,7 @@
     dom.modal.classList.remove("is-open");
     state.draft = null;
     state.editingId = null;
+    state.draftImages = [];
   }
 
   function updateFieldDots() {
@@ -427,27 +432,25 @@
     }
   }
 
-  function renderFrontPreview() {
-    dom.frontPreview.innerHTML = state.draft.front_image
-      ? '<img src="' + escapeHtml(state.draft.front_image) + '" alt="">'
-      : "<span>Görsel yok</span>";
-  }
-
-  function renderVideoPreview() {
-    dom.videoPreview.innerHTML = state.draft.video
-      ? '<video src="' + escapeHtml(state.draft.video) + '" muted controls></video>'
-      : "<span>Video yok</span>";
-  }
-
-  function renderBackList() {
-    dom.backList.innerHTML = state.draft.back_images
+  function renderImageGallery() {
+    dom.imageGallery.innerHTML = state.draftImages
       .map(function (url, i) {
         return (
           '<div class="admin-media-thumb"><img src="' + escapeHtml(url) + '" alt="">' +
-          '<button type="button" class="admin-media-thumb__remove" data-remove-back="' + i + '" aria-label="Kaldır">×</button></div>'
+          (i === 0 ? '<span class="admin-media-thumb__badge">Kapak</span>' : "") +
+          '<button type="button" class="admin-media-thumb__remove" data-remove-image="' + i + '" aria-label="Kaldır">×</button></div>'
         );
       })
       .join("");
+  }
+
+  function renderVideoPreview() {
+    var hasVideo = !!state.draft.video;
+    dom.videoPreview.innerHTML = hasVideo
+      ? '<video src="' + escapeHtml(state.draft.video) + '" muted controls></video>'
+      : "<span>Video yok</span>";
+    dom.videoAdd.hidden = hasVideo;
+    dom.videoRemove.hidden = !hasVideo;
   }
 
   function showModalError(err) {
@@ -546,33 +549,20 @@
 
     dom.form.addEventListener("input", updateFieldDots);
 
-    dom.frontInput.addEventListener("change", function () {
-      var file = dom.frontInput.files[0];
+    dom.imageInput.addEventListener("change", function () {
+      var file = dom.imageInput.files[0];
       if (!file) return;
       uploadFile(file)
-        .then(function (url) { state.draft.front_image = url; renderFrontPreview(); })
+        .then(function (url) { state.draftImages.push(url); renderImageGallery(); })
         .catch(showModalError)
-        .finally(function () { dom.frontInput.value = ""; });
+        .finally(function () { dom.imageInput.value = ""; });
     });
-    dom.frontRemove.addEventListener("click", function () {
-      state.draft.front_image = null;
-      renderFrontPreview();
-    });
-
-    dom.backInput.addEventListener("change", function () {
-      var file = dom.backInput.files[0];
-      if (!file) return;
-      uploadFile(file)
-        .then(function (url) { state.draft.back_images.push(url); renderBackList(); })
-        .catch(showModalError)
-        .finally(function () { dom.backInput.value = ""; });
-    });
-    dom.backList.addEventListener("click", function (e) {
-      var btn = e.target.closest("[data-remove-back]");
+    dom.imageGallery.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-remove-image]");
       if (!btn) return;
-      var idx = parseInt(btn.getAttribute("data-remove-back"), 10);
-      state.draft.back_images.splice(idx, 1);
-      renderBackList();
+      var idx = parseInt(btn.getAttribute("data-remove-image"), 10);
+      state.draftImages.splice(idx, 1);
+      renderImageGallery();
     });
 
     dom.videoInput.addEventListener("change", function () {
@@ -597,6 +587,9 @@
         else if (el.type === "number") state.draft[key] = el.value === "" ? 0 : parseFloat(el.value);
         else state.draft[key] = el.value;
       }
+
+      state.draft.front_image = state.draftImages[0] || null;
+      state.draft.back_images = state.draftImages.slice(1);
 
       if (!state.draft.name_tr && !state.draft.name_en && !state.draft.name_ar) {
         showModalError("En az bir dilde ürün adı girmelisiniz.");

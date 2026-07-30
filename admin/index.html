@@ -1,16 +1,15 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>(function(){try{if(localStorage.getItem("megafar-theme")==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}})();</script>
   <title>Mega Far — Yönetim Paneli</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css?v=2">
 </head>
 <body>
 
@@ -20,10 +19,6 @@
       <div class="navbar__links"><span class="admin-panel-label">Yönetim Paneli</span></div>
       <div class="navbar__actions">
         <span class="admin-user" data-admin-user hidden></span>
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Temayı değiştir" aria-pressed="false">
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
         <button type="button" class="btn btn--ghost" data-logout-btn hidden>Çıkış Yap</button>
       </div>
     </div>
@@ -81,26 +76,17 @@
       <div class="admin-modal__body">
         <div class="admin-modal__media">
           <div class="admin-media-field">
-            <span class="admin-media-field__label">Ön Görsel</span>
-            <div class="admin-media-preview" data-front-preview></div>
-            <div class="admin-media-actions">
-              <label class="btn btn--ghost admin-upload-btn">Değiştir<input type="file" accept="image/*" data-front-input hidden></label>
-              <button type="button" class="btn btn--ghost" data-front-remove>Kaldır</button>
-            </div>
-          </div>
-
-          <div class="admin-media-field">
-            <span class="admin-media-field__label">Arka Görseller</span>
-            <div class="admin-media-list" data-back-list></div>
-            <label class="btn btn--ghost admin-upload-btn">+ Görsel Ekle<input type="file" accept="image/*" data-back-input hidden></label>
+            <span class="admin-media-field__label">Görseller</span>
+            <div class="admin-media-gallery" data-image-gallery></div>
+            <label class="btn btn--ghost admin-upload-btn">+ Görsel Ekle<input type="file" accept="image/*" data-image-input hidden></label>
           </div>
 
           <div class="admin-media-field">
             <span class="admin-media-field__label">Video (opsiyonel)</span>
             <div class="admin-media-preview" data-video-preview></div>
             <div class="admin-media-actions">
-              <label class="btn btn--ghost admin-upload-btn">Değiştir<input type="file" accept="video/*" data-video-input hidden></label>
-              <button type="button" class="btn btn--ghost" data-video-remove>Kaldır</button>
+              <label class="btn btn--ghost admin-upload-btn" data-video-add>+ Video Ekle<input type="file" accept="video/*" data-video-input hidden></label>
+              <button type="button" class="btn admin-btn-danger" data-video-remove hidden>Video Sil</button>
             </div>
           </div>
         </div>
@@ -156,25 +142,16 @@
           </div>
 
           <div class="admin-field-group admin-field-group--row">
-            <label class="admin-field">
-              <span class="admin-field__label">Vurgu Rengi</span>
-              <select data-field="accent">
-                <option value="white">Beyaz</option>
-                <option value="amber">Amber</option>
-                <option value="red">Kırmızı</option>
-              </select>
-            </label>
             <label class="admin-field admin-field--checkbox">
               <input type="checkbox" data-field="is_new">
               <span>Yeni Ürün Rozeti</span>
             </label>
+            <label class="admin-field">
+              <span class="admin-field__label">Etiket</span>
+              <input type="text" data-field="tag" list="admin-tag-options" placeholder="Serbest metin ya da mevcut bir etiket seçin">
+              <datalist id="admin-tag-options" data-tag-datalist></datalist>
+            </label>
           </div>
-
-          <label class="admin-field">
-            <span class="admin-field__label">Etiket</span>
-            <input type="text" data-field="tag" list="admin-tag-options" placeholder="Serbest metin ya da mevcut bir etiket seçin">
-            <datalist id="admin-tag-options" data-tag-datalist></datalist>
-          </label>
         </div>
       </div>
 
@@ -190,7 +167,6 @@
     </div>
   </div>
 
-  <script src="../assets/script.js"></script>
-  <script src="admin.js"></script>
+  <script src="admin.js?v=2"></script>
 </body>
 </html>
