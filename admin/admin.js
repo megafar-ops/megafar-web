@@ -71,6 +71,8 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
     dom.imageGallery = document.querySelector("[data-image-gallery]");
     dom.imageInput = document.querySelector("[data-image-input]");
+    dom.coverFrame = document.querySelector("[data-cover-frame]");
+    dom.coverCenterBtn = document.querySelector("[data-cover-center]");
     dom.videoPreview = document.querySelector("[data-video-preview]");
     dom.videoInput = document.querySelector("[data-video-input]");
     dom.videoAdd = document.querySelector("[data-video-add]");
@@ -465,6 +467,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       is_new: false,
       tag: "",
       front_image: null,
+      front_image_position: null,
       back_images: [],
       video: null,
       sort_order: maxOrder + 1,
@@ -571,7 +574,63 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
         );
       })
       .join("");
+    renderCoverPosition();
     updateSaveAvailability();
+  }
+
+  function clamp(v, min, max) {
+    return Math.min(max, Math.max(min, v));
+  }
+
+  function parsePosition(pos) {
+    var m = /^(-?\d+(?:\.\d+)?)%\s+(-?\d+(?:\.\d+)?)%$/.exec((pos || "").trim());
+    if (!m) return { x: 50, y: 50 };
+    return { x: clamp(parseFloat(m[1]), 0, 100), y: clamp(parseFloat(m[2]), 0, 100) };
+  }
+
+  function renderCoverPosition() {
+    var front = state.draftImages[0];
+    var frontUrl = front && (front.url || front.localUrl);
+    if (!frontUrl) {
+      dom.coverFrame.innerHTML = '<span class="admin-media-empty">Önce görsel ekleyin</span>';
+      return;
+    }
+    var pos = parsePosition(state.draft.front_image_position);
+    dom.coverFrame.innerHTML =
+      '<img src="' + escapeHtml(frontUrl) + '" alt="" style="object-position: ' + pos.x + '% ' + pos.y + '%;">' +
+      '<span class="admin-cover-position__marker" style="left: ' + pos.x + '%; top: ' + pos.y + '%;"></span>';
+  }
+
+  function bindCoverPositionEvents() {
+    var dragging = false;
+
+    function setFromEvent(e) {
+      var rect = dom.coverFrame.getBoundingClientRect();
+      var x = clamp(((e.clientX - rect.left) / rect.width) * 100, 0, 100);
+      var y = clamp(((e.clientY - rect.top) / rect.height) * 100, 0, 100);
+      state.draft.front_image_position = Math.round(x) + "% " + Math.round(y) + "%";
+      state.formDirty = true;
+      renderCoverPosition();
+    }
+
+    dom.coverFrame.addEventListener("pointerdown", function (e) {
+      if (!state.draftImages.length) return;
+      dragging = true;
+      dom.coverFrame.setPointerCapture(e.pointerId);
+      setFromEvent(e);
+    });
+    dom.coverFrame.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      setFromEvent(e);
+    });
+    dom.coverFrame.addEventListener("pointerup", function () { dragging = false; });
+    dom.coverFrame.addEventListener("pointercancel", function () { dragging = false; });
+
+    dom.coverCenterBtn.addEventListener("click", function () {
+      state.draft.front_image_position = "50% 50%";
+      state.formDirty = true;
+      renderCoverPosition();
+    });
   }
 
   function renderVideoPreview() {
@@ -616,6 +675,8 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
   /* ---------------- static event bindings ---------------- */
 
   function bindStaticEvents() {
+    bindCoverPositionEvents();
+
     dom.loginBtn.addEventListener("click", startLogin);
     dom.logoutBtn.addEventListener("click", logout);
 

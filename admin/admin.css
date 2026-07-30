@@ -350,6 +350,51 @@
   cursor: pointer;
 }
 
+.admin-cover-position__frame {
+  position: relative;
+  width: 140px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #3a3e45;
+  background: var(--graphite);
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.admin-cover-position__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.admin-cover-position__marker {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  border: 2px solid var(--amber);
+  background: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.admin-cover-position__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-cover-position__hint {
+  font-size: 0.72rem;
+  color: var(--text-on-dark-dim);
+  max-width: 220px;
+}
+
 .admin-modal__fields { display: flex; flex-direction: column; gap: 16px; }
 
 .admin-field-group { display: flex; flex-direction: column; gap: 10px; }

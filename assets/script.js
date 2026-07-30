@@ -103,6 +103,7 @@
   }
 
   function formatPrice(price, currency) {
+    if (price === null || price === undefined || price === "") return "";
     var symbol = currency === "TRY" ? "₺" : currency;
     return symbol + price.toLocaleString("tr-TR");
   }
@@ -183,9 +184,18 @@
       // gosterilmiyor, boylece video dosyasinda ses izi olsa bile
       // duyulma ihtimali kalmiyor.
       stage.innerHTML =
-        '<video src="' + resolveAsset(slide.src) + '" autoplay muted loop playsinline></video>' + lightboxNavButtonsHtml();
+        '<video src="' + resolveAsset(slide.src) + '" autoplay muted loop playsinline disablepictureinpicture></video>' + lightboxNavButtonsHtml();
       var video = stage.querySelector("video");
       video.muted = true;
+      video.volume = 0;
+      // Bazi tarayicilar/uzantilar programatik olarak sesi acmayi dener -
+      // her denemede zorla tekrar sessize al, kullaniciya ses acma imkani hic verilmesin.
+      video.addEventListener("volumechange", function () {
+        if (!video.muted || video.volume !== 0) {
+          video.muted = true;
+          video.volume = 0;
+        }
+      });
       video.addEventListener("error", function () {
         // Video yuklenemedi - listeden cikar, komsu slide'a gec (kullaniciya
         // eksiklik hissettirmez).
@@ -251,7 +261,10 @@
     var wa = buildWaLink(name, product.code);
     root.querySelector("[data-lightbox-name]").textContent = name;
     root.querySelector("[data-lightbox-code]").textContent = product.code;
-    root.querySelector("[data-lightbox-price]").textContent = formatPrice(product.price, product.currency);
+    var priceText = formatPrice(product.price, product.currency);
+    var priceEl = root.querySelector("[data-lightbox-price]");
+    priceEl.textContent = priceText;
+    priceEl.style.display = priceText ? "" : "none";
     root.querySelector("[data-lightbox-desc]").textContent = pick(product.desc) || "";
     var waBtn = root.querySelector("[data-lightbox-wa]");
     waBtn.setAttribute("href", wa);

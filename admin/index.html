@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css">
-  <link rel="stylesheet" href="admin.css?v=6">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/admin/admin.css?v=7">
 </head>
 <body>
 
   <header class="navbar">
     <div class="navbar__inner">
-      <a class="navbar__brand" href="../index.html">MEGA <span>FAR</span></a>
+      <a class="navbar__brand" href="/">MEGA <span>FAR</span></a>
       <div class="navbar__links"><span class="admin-panel-label">Yönetim Paneli</span></div>
       <div class="navbar__actions">
         <span class="admin-user" data-admin-user hidden></span>
@@ -79,6 +79,17 @@
             <span class="admin-media-field__label">Görseller</span>
             <div class="admin-media-gallery" data-image-gallery></div>
             <label class="btn btn--ghost admin-upload-btn">+ Görsel Ekle<input type="file" accept="image/*" data-image-input hidden></label>
+          </div>
+
+          <div class="admin-media-field">
+            <span class="admin-media-field__label">Kapak Görseli Konumu</span>
+            <div class="admin-cover-position">
+              <div class="admin-cover-position__frame" data-cover-frame></div>
+              <div class="admin-cover-position__actions">
+                <button type="button" class="btn btn--ghost" data-cover-center>Ortala</button>
+                <span class="admin-cover-position__hint">Mağaza kartında görselin nasıl kırpılacağını ayarlamak için üzerine tıklayıp sürükleyin.</span>
+              </div>
+            </div>
           </div>
 
           <div class="admin-media-field">
@@ -167,6 +178,6 @@
     </div>
   </div>
 
-  <script type="module" src="admin.js?v=6"></script>
+  <script type="module" src="/admin/admin.js?v=7"></script>
 </body>
 </html>

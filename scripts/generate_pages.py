@@ -173,6 +173,7 @@ def product_card_html(product, index, lang):
     accent = product.get("accent") or "white"
     is_new = bool(product.get("is_new"))
     front_image = abs_url(product.get("front_image")) or ""
+    front_position = product.get("front_image_position") or "50% 50%"
     price_html = format_price_tr(product.get("price"), product.get("currency"))
     wa = wa_product_link(name, code)
 
@@ -185,7 +186,7 @@ def product_card_html(product, index, lang):
         <span class="card__corner card__corner--br"></span>
         %(badge)s
         <div class="card__media">
-          <img src="%(front_image)s" alt="%(name)s" loading="lazy">
+          <img src="%(front_image)s" alt="%(name)s" loading="lazy" style="object-position: %(front_position)s">
           <span class="card__zoom-hint">%(zoom_hint)s</span>
         </div>
         <div class="card__body">
@@ -201,6 +202,7 @@ def product_card_html(product, index, lang):
         "name": esc(name),
         "badge": badge,
         "front_image": esc(front_image),
+        "front_position": esc(front_position),
         "zoom_hint": esc(t["zoom_hint"]),
         "code": esc(code),
         "price": esc(price_html),
