@@ -302,6 +302,39 @@
   padding: 1px 4px;
 }
 
+.admin-media-thumb.is-uploading img { opacity: 0.5; }
+
+.admin-media-thumb__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(15, 16, 18, 0.55);
+  color: var(--concrete);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.admin-media-thumb__progress {
+  width: 70%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.admin-media-thumb__progress-bar {
+  height: 100%;
+  background: var(--amber);
+  transition: width 0.15s ease;
+}
+
+.admin-media-preview { position: relative; }
+
+.admin-media-preview .admin-media-thumb__overlay { font-size: 0.75rem; }
+.admin-media-preview .admin-media-thumb__progress { width: 60%; height: 6px; }
+
 .admin-media-thumb__remove {
   position: absolute;
   top: 0;

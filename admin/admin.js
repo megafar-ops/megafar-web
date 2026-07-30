@@ -32,7 +32,10 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     products: [],
     editingId: null,
     draft: null,
-    draftImages: []
+    draftImages: [],
+    videoUploading: false,
+    videoProgress: 0,
+    videoLocalUrl: null
   };
 
   var draggingId = null;
@@ -253,18 +256,44 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
   /* ---------------- upload ---------------- */
 
-  function uploadFile(file) {
+  // upload() kutuphanesi token uretimi basarisiz olursa jenerik
+  // "Failed to retrieve the client token" mesaji verir; asil sebebi
+  // (blob store baglanmamis, token gecersiz, vs.) gormek icin ayni
+  // istegi kendimiz tekrar atip /api/upload'in gercek JSON hatasini okuruz.
+  function diagnoseUploadError(pathname) {
+    return fetch("/api/upload", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        type: "blob.generate-client-token",
+        payload: { pathname: pathname, clientPayload: JSON.stringify({ githubToken: state.token }), multipart: false }
+      })
+    })
+      .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+      .then(function (result) {
+        if (result.ok) return null;
+        return (result.data && (result.data.error_description || result.data.error)) || null;
+      })
+      .catch(function () { return null; });
+  }
+
+  function uploadFile(file, onProgress) {
     var safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     var pathname = "products/" + Date.now() + "-" + safeName;
 
     return upload(pathname, file, {
       access: "public",
       handleUploadUrl: "/api/upload",
-      clientPayload: JSON.stringify({ githubToken: state.token })
+      clientPayload: JSON.stringify({ githubToken: state.token }),
+      onUploadProgress: onProgress
+        ? function (progress) { onProgress(Math.round(progress.percentage)); }
+        : undefined
     })
       .then(function (blob) { return blob.url; })
       .catch(function (err) {
-        throw new Error(err && err.message ? err.message : "Yukleme basarisiz oldu.");
+        return diagnoseUploadError(pathname).then(function (detail) {
+          throw new Error(detail || (err && err.message) || "Yükleme başarısız oldu.");
+        });
       });
   }
 
@@ -394,11 +423,17 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     state.editingId = isNewProduct ? null : product.id;
     state.draft = isNewProduct ? blankDraft() : JSON.parse(JSON.stringify(product));
 
-    state.draftImages = [];
-    if (state.draft.front_image) state.draftImages.push(state.draft.front_image);
+    var existingUrls = [];
+    if (state.draft.front_image) existingUrls.push(state.draft.front_image);
     if (state.draft.back_images && state.draft.back_images.length) {
-      state.draftImages = state.draftImages.concat(state.draft.back_images);
+      existingUrls = existingUrls.concat(state.draft.back_images);
     }
+    state.draftImages = existingUrls.map(function (url) {
+      return { url: url, localUrl: url, progress: 100, uploading: false };
+    });
+    state.videoUploading = false;
+    state.videoProgress = 0;
+    state.videoLocalUrl = null;
 
     dom.modalTitle.textContent = isNewProduct ? "Yeni Ürün Ekle" : "Ürün Düzenle";
     dom.deleteBtn.hidden = isNewProduct;
@@ -422,9 +457,16 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
   function closeModal() {
     dom.modal.classList.remove("is-open");
+    if (state.videoLocalUrl) URL.revokeObjectURL(state.videoLocalUrl);
+    state.draftImages.forEach(function (img) {
+      if (img.uploading && img.localUrl) URL.revokeObjectURL(img.localUrl);
+    });
     state.draft = null;
     state.editingId = null;
     state.draftImages = [];
+    state.videoUploading = false;
+    state.videoProgress = 0;
+    state.videoLocalUrl = null;
   }
 
   function updateFieldDots() {
@@ -438,25 +480,57 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     }
   }
 
+  function progressOverlay(percent) {
+    return (
+      '<div class="admin-media-thumb__overlay">' +
+      '<div class="admin-media-thumb__progress"><div class="admin-media-thumb__progress-bar" style="width:' + percent + '%"></div></div>' +
+      "<span>" + percent + "%</span>" +
+      "</div>"
+    );
+  }
+
   function renderImageGallery() {
     dom.imageGallery.innerHTML = state.draftImages
-      .map(function (url, i) {
+      .map(function (img, i) {
+        var src = img.url || img.localUrl;
         return (
-          '<div class="admin-media-thumb"><img src="' + escapeHtml(url) + '" alt="">' +
+          '<div class="admin-media-thumb' + (img.uploading ? " is-uploading" : "") + '">' +
+          '<img src="' + escapeHtml(src) + '" alt="">' +
+          (img.uploading ? progressOverlay(img.progress) : "") +
           (i === 0 ? '<span class="admin-media-thumb__badge">Kapak</span>' : "") +
-          '<button type="button" class="admin-media-thumb__remove" data-remove-image="' + i + '" aria-label="Kaldır">×</button></div>'
+          (img.uploading
+            ? ""
+            : '<button type="button" class="admin-media-thumb__remove" data-remove-image="' + i + '" aria-label="Kaldır">×</button>') +
+          "</div>"
         );
       })
       .join("");
+    updateSaveAvailability();
   }
 
   function renderVideoPreview() {
     var hasVideo = !!state.draft.video;
-    dom.videoPreview.innerHTML = hasVideo
-      ? '<video src="' + escapeHtml(state.draft.video) + '" muted controls></video>'
-      : "<span>Video yok</span>";
-    dom.videoAdd.hidden = hasVideo;
-    dom.videoRemove.hidden = !hasVideo;
+    if (state.videoUploading) {
+      dom.videoPreview.innerHTML =
+        '<video src="' + escapeHtml(state.videoLocalUrl) + '" muted></video>' + progressOverlay(state.videoProgress);
+    } else {
+      dom.videoPreview.innerHTML = hasVideo
+        ? '<video src="' + escapeHtml(state.draft.video) + '" muted controls></video>'
+        : "<span>Video yok</span>";
+    }
+    dom.videoAdd.hidden = hasVideo || state.videoUploading;
+    dom.videoRemove.hidden = !hasVideo || state.videoUploading;
+    updateSaveAvailability();
+  }
+
+  function isAnyUploadPending() {
+    return state.videoUploading || state.draftImages.some(function (img) { return img.uploading; });
+  }
+
+  function updateSaveAvailability() {
+    var pending = isAnyUploadPending();
+    dom.saveBtn.disabled = pending;
+    dom.saveBtn.textContent = pending ? "Yükleniyor…" : "Kaydet";
   }
 
   function showModalError(err) {
@@ -557,11 +631,30 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
     dom.imageInput.addEventListener("change", function () {
       var file = dom.imageInput.files[0];
+      dom.imageInput.value = "";
       if (!file) return;
-      uploadFile(file)
-        .then(function (url) { state.draftImages.push(url); renderImageGallery(); })
-        .catch(showModalError)
-        .finally(function () { dom.imageInput.value = ""; });
+
+      var entry = { url: null, localUrl: URL.createObjectURL(file), progress: 0, uploading: true };
+      state.draftImages.push(entry);
+      renderImageGallery();
+
+      uploadFile(file, function (percent) {
+        entry.progress = percent;
+        renderImageGallery();
+      })
+        .then(function (url) {
+          entry.url = url;
+          entry.uploading = false;
+          URL.revokeObjectURL(entry.localUrl);
+          renderImageGallery();
+        })
+        .catch(function (err) {
+          var idx = state.draftImages.indexOf(entry);
+          if (idx !== -1) state.draftImages.splice(idx, 1);
+          URL.revokeObjectURL(entry.localUrl);
+          renderImageGallery();
+          showModalError(err);
+        });
     });
     dom.imageGallery.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-remove-image]");
@@ -573,11 +666,32 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
 
     dom.videoInput.addEventListener("change", function () {
       var file = dom.videoInput.files[0];
+      dom.videoInput.value = "";
       if (!file) return;
-      uploadFile(file)
-        .then(function (url) { state.draft.video = url; renderVideoPreview(); })
-        .catch(showModalError)
-        .finally(function () { dom.videoInput.value = ""; });
+
+      state.videoLocalUrl = URL.createObjectURL(file);
+      state.videoUploading = true;
+      state.videoProgress = 0;
+      renderVideoPreview();
+
+      uploadFile(file, function (percent) {
+        state.videoProgress = percent;
+        renderVideoPreview();
+      })
+        .then(function (url) {
+          state.draft.video = url;
+          state.videoUploading = false;
+          URL.revokeObjectURL(state.videoLocalUrl);
+          state.videoLocalUrl = null;
+          renderVideoPreview();
+        })
+        .catch(function (err) {
+          state.videoUploading = false;
+          URL.revokeObjectURL(state.videoLocalUrl);
+          state.videoLocalUrl = null;
+          renderVideoPreview();
+          showModalError(err);
+        });
     });
     dom.videoRemove.addEventListener("click", function () {
       state.draft.video = null;
@@ -594,8 +708,14 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
         else state.draft[key] = el.value;
       }
 
-      state.draft.front_image = state.draftImages[0] || null;
-      state.draft.back_images = state.draftImages.slice(1);
+      if (isAnyUploadPending()) {
+        showModalError("Yükleme tamamlanmadan kaydedilemez, lütfen bekleyin.");
+        return;
+      }
+
+      var imageUrls = state.draftImages.map(function (img) { return img.url; }).filter(Boolean);
+      state.draft.front_image = imageUrls[0] || null;
+      state.draft.back_images = imageUrls.slice(1);
 
       if (!state.draft.name_tr && !state.draft.name_en && !state.draft.name_ar) {
         showModalError("En az bir dilde ürün adı girmelisiniz.");
