@@ -641,18 +641,19 @@
       "description_tr": "Geniş boy çakarlı lamba, 12-24V voltaj aralığında çalışarak güvenliğinizi artırır.",
       "description_en": "The wide size flashing lamp operates within a 12-24V voltage range to enhance your safety.",
       "description_ar": "يعمل المصباح الومض بحجم واسع ضمن نطاق جهد 12-24 فولت لتعزيز سلامتك.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420036133-WhatsApp_Image_2026-07-30_at_16.31.56__1_-KTvHCTi69ABfjmu8GBdjNs0ephzNmK.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420037856-WhatsApp_Image_2026-07-30_at_16.31.56-FntCe5js3DdYpqAlTNJ6bthS1aE7st.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420037856-WhatsApp_Image_2026-07-30_at_16.31.56-FntCe5js3DdYpqAlTNJ6bthS1aE7st.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420036133-WhatsApp_Image_2026-07-30_at_16.31.56__1_-KTvHCTi69ABfjmu8GBdjNs0ephzNmK.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420039340-WhatsApp_Video_2026-07-30_at_16.31.56-RYZKu90g8Qvv675hQ2HQK0hf6T2xVa.mp4",
       "sort_order": 30,
-      "created_at": "2026-07-30T13:58:47.818Z"
+      "created_at": "2026-07-30T13:58:47.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kzyk4gahv",
