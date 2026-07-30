@@ -707,18 +707,19 @@
       "description_tr": "Geniş boyutuyla dikkat çeken sade lamba, 12-24V voltaj aralığında çalışarak mükemmel aydınlatma sağlar.",
       "description_en": "This wide simple lamp operates within a 12-24V voltage range, providing excellent illumination.",
       "description_ar": "يعمل هذا المصباح البسيط الواسع ضمن نطاق جهد 12-24 فولت، مما يوفر إضاءة ممتازة.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420055362-WhatsApp_Image_2026-07-30_at_16.32.00__1_-SGo7vFt88zWCln0f7TOzZeyQsGE1ix.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420056743-WhatsApp_Image_2026-07-30_at_16.32.00-vjAMRCG8e5qWkHJrOOy087rI6yKUoJ.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420056743-WhatsApp_Image_2026-07-30_at_16.32.00-vjAMRCG8e5qWkHJrOOy087rI6yKUoJ.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420055362-WhatsApp_Image_2026-07-30_at_16.32.00__1_-SGo7vFt88zWCln0f7TOzZeyQsGE1ix.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420058429-WhatsApp_Video_2026-07-30_at_16.32.01-4p6gVicpucPloOeRSOr1pbi5AT1IUn.mp4",
       "sort_order": 33,
-      "created_at": "2026-07-30T13:58:50.818Z"
+      "created_at": "2026-07-30T13:58:50.818Z",
+      "front_image_position": "32% 4%"
     },
     {
       "id": "prod-ms7l0c6tni0j",
