@@ -839,18 +839,19 @@
       "description_tr": "Küçük boy çakarlı lamba, 12-24V voltaj aralığında çalışarak dikkat çekici kırmızı ışık sağlar.",
       "description_en": "The small size flashing light operates within a voltage range of 12-24V, providing an attention-grabbing red light.",
       "description_ar": "يعمل مصباح الفلاش صغير الحجم ضمن نطاق جهد 12-24 فولت، مما يوفر ضوءًا أحمر يجذب الانتباه.",
-      "price": null,
+      "price": 0,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420086023-WhatsApp_Image_2026-07-30_at_16.27.03__1_-gUZdEAJDpKxAuGoK25ad8FR66Jqb7U.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420087645-WhatsApp_Image_2026-07-30_at_16.27.03-hEq08Ze6Ym9mBRLp0hlzDtA4o9MgPa.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420087645-WhatsApp_Image_2026-07-30_at_16.27.03-hEq08Ze6Ym9mBRLp0hlzDtA4o9MgPa.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420086023-WhatsApp_Image_2026-07-30_at_16.27.03__1_-gUZdEAJDpKxAuGoK25ad8FR66Jqb7U.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420089521-WhatsApp_Video_2026-07-30_at_16.27.03-A8OjNTNSPSSqkSI6qGerVyNnsYj3mc.mp4",
       "sort_order": 39,
-      "created_at": "2026-07-30T13:58:56.818Z"
+      "created_at": "2026-07-30T13:58:56.818Z",
+      "front_image_position": "57% 0%"
     },
     {
       "id": "prod-ms7l10k9eu1m",
