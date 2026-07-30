@@ -1,28 +1,6 @@
 {
   "products": [
     {
-      "id": "mf-ms-201",
-      "code": "MF-MS-201",
-      "name_tr": "Mini Sinyal Lamba Çift Renk",
-      "name_en": "Mini Dual-Color Signal Lamp",
-      "name_ar": "مصباح إشارة صغير ثنائي اللون",
-      "description_tr": "Kompakt gövde, çift renk sinyal çıkışı. Kalıptan seri üretim.",
-      "description_en": "Compact housing, dual-color signal output. Mass-produced from our own mold.",
-      "description_ar": "هيكل مدمج بمخرج إشارة ثنائي اللون. إنتاج متسلسل من قالبنا الخاص.",
-      "price": 400,
-      "currency": "TRY",
-      "accent": "red",
-      "is_new": true,
-      "tag": "",
-      "front_image": "/assets/products/ph-6-front.svg",
-      "back_images": [
-        "/assets/products/ph-6-back-a.svg"
-      ],
-      "video": null,
-      "sort_order": 1,
-      "created_at": "2026-07-24T09:00:00.000Z"
-    },
-    {
       "id": "mf-lf-001",
       "code": "MF-LF-001",
       "name_tr": "LED Çubuk Far Seti 120W",
