@@ -35,7 +35,8 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     draftImages: [],
     videoUploading: false,
     videoProgress: 0,
-    videoLocalUrl: null
+    videoLocalUrl: null,
+    formDirty: false
   };
 
   var draggingId = null;
@@ -451,6 +452,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     updateFieldDots();
     renderImageGallery();
     renderVideoPreview();
+    state.formDirty = false;
 
     dom.modal.classList.add("is-open");
   }
@@ -467,6 +469,17 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     state.videoUploading = false;
     state.videoProgress = 0;
     state.videoLocalUrl = null;
+    state.formDirty = false;
+  }
+
+  // Modal disari tiklama/Iptal/Escape ile kapatilirken kaydedilmemis
+  // degisiklik varsa kullaniciyi uyarir; Kaydet/Sil basariyla bittikten
+  // sonra dogrudan closeModal() cagrilir (orada onay istemeye gerek yok).
+  function attemptCloseModal() {
+    if (state.formDirty && !confirm("Kaydedilmemiş değişiklikler var. Kapatmak istediğinize emin misiniz?")) {
+      return;
+    }
+    closeModal();
   }
 
   function updateFieldDots() {
@@ -520,6 +533,8 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     }
     dom.videoAdd.hidden = hasVideo || state.videoUploading;
     dom.videoRemove.hidden = !hasVideo || state.videoUploading;
+    var previewVideo = dom.videoPreview.querySelector("video");
+    if (previewVideo) previewVideo.muted = true;
     updateSaveAvailability();
   }
 
@@ -620,19 +635,23 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       draggingId = null;
     });
 
-    dom.modalClose.addEventListener("click", closeModal);
-    dom.cancelBtn.addEventListener("click", closeModal);
-    dom.modal.addEventListener("click", function (e) { if (e.target === dom.modal) closeModal(); });
+    dom.modalClose.addEventListener("click", attemptCloseModal);
+    dom.cancelBtn.addEventListener("click", attemptCloseModal);
+    dom.modal.addEventListener("click", function (e) { if (e.target === dom.modal) attemptCloseModal(); });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && dom.modal.classList.contains("is-open")) closeModal();
+      if (e.key === "Escape" && dom.modal.classList.contains("is-open")) attemptCloseModal();
     });
 
-    dom.form.addEventListener("input", updateFieldDots);
+    dom.form.addEventListener("input", function () {
+      state.formDirty = true;
+      updateFieldDots();
+    });
 
     dom.imageInput.addEventListener("change", function () {
       var file = dom.imageInput.files[0];
       dom.imageInput.value = "";
       if (!file) return;
+      state.formDirty = true;
 
       var entry = { url: null, localUrl: URL.createObjectURL(file), progress: 0, uploading: true };
       state.draftImages.push(entry);
@@ -661,6 +680,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       if (!btn) return;
       var idx = parseInt(btn.getAttribute("data-remove-image"), 10);
       state.draftImages.splice(idx, 1);
+      state.formDirty = true;
       renderImageGallery();
     });
 
@@ -668,6 +688,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
       var file = dom.videoInput.files[0];
       dom.videoInput.value = "";
       if (!file) return;
+      state.formDirty = true;
 
       state.videoLocalUrl = URL.createObjectURL(file);
       state.videoUploading = true;
@@ -695,6 +716,7 @@ import { upload } from "https://esm.sh/@vercel/blob@2.6.1/client";
     });
     dom.videoRemove.addEventListener("click", function () {
       state.draft.video = null;
+      state.formDirty = true;
       renderVideoPreview();
     });
 

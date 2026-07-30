@@ -163,63 +163,107 @@
 
   var lightboxState = {
     product: null,
-    gallery: [],
-    activeIndex: 0,
-    mode: "video" // "video" | "gallery"
+    slides: [], // [{ type: "image"|"video", src }]
+    activeIndex: 0
   };
 
   function getLightboxEl() {
     return document.querySelector("[data-lightbox]");
   }
 
+  // Once on gorsel, sonra arka gorseller, en sonda video - hepsi tek
+  // bir kaydirilabilir galeri olarak gosterilir (video hicbir zaman
+  // otomatik one gecmez, kullanici sirayla gezer).
+  function buildSlides(product) {
+    var slides = [];
+    if (product.frontImage) slides.push({ type: "image", src: product.frontImage });
+    (product.backImages || []).forEach(function (src) {
+      slides.push({ type: "image", src: src });
+    });
+    if (product.video) slides.push({ type: "video", src: product.video });
+    return slides;
+  }
+
+  function lightboxNavButtonsHtml() {
+    return lightboxState.slides.length > 1
+      ? '<button type="button" class="lightbox__nav-btn lightbox__nav-btn--prev" data-nav="-1" aria-label="Onceki">&#8249;</button>' +
+        '<button type="button" class="lightbox__nav-btn lightbox__nav-btn--next" data-nav="1" aria-label="Sonraki">&#8250;</button>'
+      : "";
+  }
+
   function renderLightboxStage() {
     var stage = document.querySelector("[data-lightbox-stage]");
-    var thumbs = document.querySelector("[data-lightbox-thumbs]");
     if (!stage) return;
 
-    if (lightboxState.mode === "video") {
+    var slide = lightboxState.slides[lightboxState.activeIndex];
+    if (!slide) {
+      stage.innerHTML = "";
+      renderLightboxThumbs();
+      return;
+    }
+
+    if (slide.type === "video") {
       stage.innerHTML =
-        '<video src="' + resolveAsset(lightboxState.product.video) + '" autoplay muted loop playsinline controls></video>';
+        '<video src="' + resolveAsset(slide.src) + '" autoplay muted loop playsinline controls></video>' + lightboxNavButtonsHtml();
       var video = stage.querySelector("video");
+      video.muted = true;
       video.addEventListener("error", function () {
-        lightboxState.mode = "gallery";
-        lightboxState.activeIndex = 0;
+        // Video yuklenemedi - listeden cikar, komsu slide'a gec (kullaniciya
+        // eksiklik hissettirmez).
+        lightboxState.slides.splice(lightboxState.activeIndex, 1);
+        if (lightboxState.activeIndex >= lightboxState.slides.length) {
+          lightboxState.activeIndex = Math.max(0, lightboxState.slides.length - 1);
+        }
         renderLightboxStage();
       });
     } else {
-      var img = lightboxState.gallery[lightboxState.activeIndex];
       stage.innerHTML =
-        '<img src="' + resolveAsset(img) + '" alt="' + pick(lightboxState.product.name) + '">' +
-        (lightboxState.gallery.length > 1
-          ? '<button type="button" class="lightbox__nav-btn lightbox__nav-btn--prev" data-nav="-1" aria-label="Onceki">&#8249;</button>' +
-            '<button type="button" class="lightbox__nav-btn lightbox__nav-btn--next" data-nav="1" aria-label="Sonraki">&#8250;</button>'
-          : "");
+        '<img src="' + resolveAsset(slide.src) + '" alt="' + pick(lightboxState.product.name) + '">' + lightboxNavButtonsHtml();
     }
 
-    if (thumbs) {
-      if (lightboxState.mode === "gallery" && lightboxState.gallery.length > 1) {
-        thumbs.innerHTML = lightboxState.gallery
-          .map(function (src, i) {
-            return (
-              '<button type="button" class="lightbox__thumb' +
-              (i === lightboxState.activeIndex ? " is-active" : "") +
-              '" data-thumb="' + i + '"><img src="' + resolveAsset(src) + '" alt=""></button>'
-            );
-          })
-          .join("");
-      } else {
-        thumbs.innerHTML = "";
-      }
+    renderLightboxThumbs();
+  }
+
+  function renderLightboxThumbs() {
+    var thumbs = document.querySelector("[data-lightbox-thumbs]");
+    if (!thumbs) return;
+
+    if (lightboxState.slides.length <= 1) {
+      thumbs.innerHTML = "";
+      return;
     }
+
+    thumbs.innerHTML = lightboxState.slides
+      .map(function (slide, i) {
+        var active = i === lightboxState.activeIndex ? " is-active" : "";
+        if (slide.type === "video") {
+          return (
+            '<button type="button" class="lightbox__thumb lightbox__thumb--video' + active + '" data-thumb="' + i + '" aria-label="Video">' +
+            '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
+            "</button>"
+          );
+        }
+        return (
+          '<button type="button" class="lightbox__thumb' + active + '" data-thumb="' + i +
+          '"><img src="' + resolveAsset(slide.src) + '" alt=""></button>'
+        );
+      })
+      .join("");
+  }
+
+  function navigateLightbox(dir) {
+    var len = lightboxState.slides.length;
+    if (len < 2) return;
+    lightboxState.activeIndex = (lightboxState.activeIndex + dir + len) % len;
+    renderLightboxStage();
   }
 
   function openLightbox(index) {
     var product = PRODUCTS[index];
     if (!product) return;
     lightboxState.product = product;
-    lightboxState.gallery = product.backImages || [];
+    lightboxState.slides = buildSlides(product);
     lightboxState.activeIndex = 0;
-    lightboxState.mode = product.video ? "video" : "gallery";
 
     var root = getLightboxEl();
     if (!root) return;
@@ -260,12 +304,7 @@
       if (closeBtn) closeLightbox();
 
       var nav = e.target.closest("[data-nav]");
-      if (nav) {
-        var dir = parseInt(nav.getAttribute("data-nav"), 10);
-        var len = lightboxState.gallery.length;
-        lightboxState.activeIndex = (lightboxState.activeIndex + dir + len) % len;
-        renderLightboxStage();
-      }
+      if (nav) navigateLightbox(parseInt(nav.getAttribute("data-nav"), 10));
 
       var thumb = e.target.closest("[data-thumb]");
       if (thumb) {
@@ -277,13 +316,31 @@
     document.addEventListener("keydown", function (e) {
       if (!root.classList.contains("is-open")) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-        var navBtn = root.querySelector(
-          e.key === "ArrowLeft" ? "[data-nav='-1']" : "[data-nav='1']"
-        );
-        if (navBtn) navBtn.click();
-      }
+      if (e.key === "ArrowLeft") navigateLightbox(-1);
+      if (e.key === "ArrowRight") navigateLightbox(1);
     });
+
+    // Dokunmatik cihazlarda sola/saga kaydirarak slide degistirme.
+    var stage = document.querySelector("[data-lightbox-stage]");
+    if (stage) {
+      var touchStartX = null;
+      stage.addEventListener(
+        "touchstart",
+        function (e) { touchStartX = e.touches[0].clientX; },
+        { passive: true }
+      );
+      stage.addEventListener(
+        "touchend",
+        function (e) {
+          if (touchStartX === null) return;
+          var deltaX = e.changedTouches[0].clientX - touchStartX;
+          touchStartX = null;
+          if (Math.abs(deltaX) < 40) return;
+          navigateLightbox(deltaX > 0 ? -1 : 1);
+        },
+        { passive: true }
+      );
+    }
   }
 
   /* ---------------- Floating WhatsApp button ---------------- */
