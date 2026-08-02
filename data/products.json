@@ -1289,7 +1289,7 @@
       "description_tr": "Uzun sade lamba, 12-24V voltaj aralığında beyaz ışık sağlar.",
       "description_en": "The long simple lamp provides white light in the 12-24V voltage range.",
       "description_ar": "يوفر المصباح البسيط الطويل ضوءًا أبيض في نطاق جهد 12-24 فولت.",
-      "price": null,
+      "price": 70,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
