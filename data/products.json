@@ -1199,7 +1199,7 @@
       "description_tr": "Uzun çakarlı lamba, dikkat çekici kırmızı ışığıyla güvenliğinizi artırır.",
       "description_en": "The long strobe lamp enhances your safety with its eye-catching red light.",
       "description_ar": "يزيد مصباح الفلاش الطويل من سلامتك مع ضوئه الأحمر الجذاب.",
-      "price": null,
+      "price": 150,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
