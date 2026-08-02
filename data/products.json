@@ -163,29 +163,6 @@
       "front_image_position": "100% 16%"
     },
     {
-      "id": "prod-ms7l1wpq06nc",
-      "code": "",
-      "name_tr": "Side Marker 12-24V Beyaz Renk",
-      "name_en": "Side Marker 12-24V White Color",
-      "name_ar": "علامة جانبية 12-24 فولت لون أبيض",
-      "description_tr": "Araç görünürlüğünü artıran beyaz renk yan sinyal.",
-      "description_en": "White side marker that enhances vehicle visibility.",
-      "description_ar": "علامة جانبية بيضاء تعزز من رؤية السيارة.",
-      "price": 20,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420135588-WhatsApp_Image_2026-07-30_at_00.39.04-MTrOvJrET1RivmyFRGEQNgF458C01b.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420134265-WhatsApp_Image_2026-07-30_at_00.39.04__1_-GW4nFukv8vC8uacruzE8kutGyNHBvy.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420136885-WhatsApp_Video_2026-07-30_at_00.39.11-2HRWMdL3u5VxbSfg3SZSnIbF9s8Ot6.mp4",
-      "sort_order": 8,
-      "created_at": "2026-07-30T13:59:05.818Z",
-      "front_image_position": "100% 8%"
-    },
-    {
       "id": "prod-ms7kzewp3u5a",
       "code": "",
       "name_tr": "24 LED'li Neon Lamba 12-24V Sarı Renk",
@@ -204,9 +181,32 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420018230-WhatsApp_Image_2026-07-30_at_16.31.58-SshCka8JCjsNnnm3qsFn1ew6o3hxxB.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420021164-WhatsApp_Video_2026-07-30_at_16.31.59-HVRiAJnDYJbpytGYud19bS5bR9dh2p.mp4",
-      "sort_order": 9,
+      "sort_order": 8,
       "created_at": "2026-07-30T13:58:43.818Z",
       "front_image_position": "82% 0%"
+    },
+    {
+      "id": "prod-ms7l1wpq06nc",
+      "code": "",
+      "name_tr": "Side Marker 12-24V Beyaz Renk",
+      "name_en": "Side Marker 12-24V White Color",
+      "name_ar": "علامة جانبية 12-24 فولت لون أبيض",
+      "description_tr": "Araç görünürlüğünü artıran beyaz renk yan sinyal.",
+      "description_en": "White side marker that enhances vehicle visibility.",
+      "description_ar": "علامة جانبية بيضاء تعزز من رؤية السيارة.",
+      "price": 20,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420135588-WhatsApp_Image_2026-07-30_at_00.39.04-MTrOvJrET1RivmyFRGEQNgF458C01b.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420134265-WhatsApp_Image_2026-07-30_at_00.39.04__1_-GW4nFukv8vC8uacruzE8kutGyNHBvy.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420136885-WhatsApp_Video_2026-07-30_at_00.39.11-2HRWMdL3u5VxbSfg3SZSnIbF9s8Ot6.mp4",
+      "sort_order": 9,
+      "created_at": "2026-07-30T13:59:05.818Z",
+      "front_image_position": "100% 8%"
     },
     {
       "id": "prod-ms7kzh319f5x",
