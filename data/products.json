@@ -458,7 +458,7 @@
       "description_tr": "Araçlarınız için yüksek görünürlük sağlayan 9 LED'li yan sinyal.",
       "description_en": "A side marker with 9 LEDs providing high visibility for your vehicles.",
       "description_ar": "علامة جانبية مزودة بـ 9 LED توفر رؤية عالية لمركباتك.",
-      "price": null,
+      "price": 50,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
