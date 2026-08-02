@@ -324,28 +324,6 @@
       "front_image_position": "50% 50%"
     },
     {
-      "id": "prod-ms7kxmyiiiz4",
-      "code": "",
-      "name_tr": "6 LED'li Mini Takoz 12-24V Kırmızı Beyaz Renk",
-      "name_en": "6 LED Mini Wedge 12-24V Red White Color",
-      "name_ar": "6 LED مصباح صغير 12-24V لون أحمر أبيض",
-      "description_tr": "Kompakt tasarımıyla 6 LED'li mini takoz, aracınıza şık bir aydınlatma sağlar.",
-      "description_en": "The compact design of the 6 LED mini wedge provides stylish lighting for your vehicle.",
-      "description_ar": "تصميمه المدمج مع 6 LED يوفر إضاءة أنيقة لمركبتك.",
-      "price": 30,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419935170-WhatsApp_Image_2026-07-30_at_16.32.03__1_-JR16lxzbgqQIxOqad3RoTngKs8cRZ9.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419936473-WhatsApp_Image_2026-07-30_at_16.32.03-vVIUO28ZELjn9nVopnNH2dsIe0jDev.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419938122-WhatsApp_Video_2026-07-30_at_16.32.03-Dv2OsaT4zgyRrGeOIf1bGgtzjLC3Kx.mp4",
-      "sort_order": 15,
-      "created_at": "2026-07-30T13:58:25.818Z"
-    },
-    {
       "id": "prod-ms7kxrhb0x75",
       "code": "",
       "name_tr": "6 LED'li Mini Takoz 12-24V Sarı Kırmızı Renk",
@@ -364,7 +342,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419941791-WhatsApp_Image_2026-07-30_at_16.32.01-vOd7ckhTR9G0PWY3lXHzQj8JVmTSce.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419943417-WhatsApp_Video_2026-07-30_at_16.32.01-wJxzbYCx4hJtOQe7XMEfyxqKHSaz9c.mp4",
-      "sort_order": 16,
+      "sort_order": 15,
       "created_at": "2026-07-30T13:58:26.818Z"
     },
     {
@@ -386,7 +364,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419946340-WhatsApp_Image_2026-07-29_at_23.59.5-rOz7pEFSAbfetMBoWmw3eyFNkZ5Mh0.jpeg"
       ],
       "video": null,
-      "sort_order": 17,
+      "sort_order": 16,
       "created_at": "2026-07-30T13:58:27.818Z",
       "front_image_position": "50% 50%"
     },
@@ -409,7 +387,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419949389-WhatsApp_Image_2026-07-30_at_00.01.0-RBPjwaOghA1qgYwVKej0DLM1sPUPT5.jpeg"
       ],
       "video": null,
-      "sort_order": 18,
+      "sort_order": 17,
       "created_at": "2026-07-30T13:58:28.818Z",
       "front_image_position": "50% 50%"
     },
@@ -432,7 +410,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419953676-WhatsApp_Image_2026-07-30_at_00.00.22-zF7X8E5uvRAbkWd2ku7loDonL7ShzQ.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419955118-WhatsApp_Video_2026-07-30_at_00.00.27-rZyI91WjLcriZXn6adFIYfWBWvUip7.mp4",
-      "sort_order": 19,
+      "sort_order": 18,
       "created_at": "2026-07-30T13:58:29.818Z"
     },
     {
@@ -454,7 +432,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419958489-WhatsApp_Image_2026-07-30_at_16.31.58__1_-ld9SqT9waokJPhmXgKsXUflfMOWx1g.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419961229-WhatsApp_Video_2026-07-30_at_16.31.58-IkSeAfcmLf4iQUTPX85ddx6Dc74NOG.mp4",
-      "sort_order": 20,
+      "sort_order": 19,
       "created_at": "2026-07-30T13:58:30.818Z",
       "front_image_position": "50% 50%"
     },
@@ -477,7 +455,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419965312-WhatsApp_Image_2026-07-30_at_16.32.02-5SyPLUicksPd6FKhb09axRTiIV5sej.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419966516-WhatsApp_Video_2026-07-30_at_16.32.02-NqtL40kNDu4XgjG3F9F4ZO2r5GzuSI.mp4",
-      "sort_order": 21,
+      "sort_order": 20,
       "created_at": "2026-07-30T13:58:31.818Z"
     },
     {
@@ -499,7 +477,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419968809-WhatsApp_Image_2026-07-30_at_16.32.03__1_-pypninW8ZB3VekniV5EHhnFf0nBXOX.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419971453-WhatsApp_Video_2026-07-30_at_16.32.03-HjvRJvT3yE1y2PxSJmdQTWTDwggjGp.mp4",
-      "sort_order": 22,
+      "sort_order": 21,
       "created_at": "2026-07-30T13:58:32.818Z",
       "front_image_position": "50% 50%"
     },
@@ -522,7 +500,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419973915-WhatsApp_Image_2026-07-30_at_00.10.53__1_-PYSTDsI4KM3ghuKrHgyWaK69vSwgbb.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419976425-WhatsApp_Video_2026-07-30_at_00.10.57-1Du8LKm7hD122BIS4xpxnT2K0sZlWH.mp4",
-      "sort_order": 23,
+      "sort_order": 22,
       "created_at": "2026-07-30T13:58:33.818Z",
       "front_image_position": "50% 50%"
     },
@@ -545,7 +523,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419979197-WhatsApp_Image_2026-07-30_at_00.10.34__1_-AdRdPxwhthLgPHsUSBurOJN4uMfZxo.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419982161-WhatsApp_Video_2026-07-30_at_00.10.37-QSNR9DaMyKJ4i1I8fhD7G0WGTJkX5t.mp4",
-      "sort_order": 24,
+      "sort_order": 23,
       "created_at": "2026-07-30T13:58:34.818Z",
       "front_image_position": "50% 50%"
     },
@@ -566,7 +544,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419984502-WhatsApp_Image_2026-07-30_at_00.09.46-OQbhYF751RVJS1IE1ASglEuNAIMLA5.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419985839-WhatsApp_Video_2026-07-30_at_00.09.49-AvkMqcOVmI8soZxL97dl1RDJvSZLyM.mp4",
-      "sort_order": 25,
+      "sort_order": 24,
       "created_at": "2026-07-30T13:58:35.818Z"
     },
     {
@@ -588,7 +566,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419987956-WhatsApp_Image_2026-07-30_at_00.10.20__1_-THJMu7TLyv3gGlVsW54x5tJyuEax82.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419990474-WhatsApp_Video_2026-07-30_at_00.10.23-ZtVKyioa7XX0b36JkYcRqZkAjewBZd.mp4",
-      "sort_order": 26,
+      "sort_order": 25,
       "created_at": "2026-07-30T13:58:36.818Z",
       "front_image_position": "50% 50%"
     },
@@ -611,7 +589,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419992383-WhatsApp_Image_2026-07-30_at_00.11.23__1_-UbJV0FxSQGIbmmL2Hny5GRhaXhfdXl.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419995058-WhatsApp_Video_2026-07-30_at_00.11.27-g5MfptkuxqRwAKkZ8rwziTGCDoUV7N.mp4",
-      "sort_order": 27,
+      "sort_order": 26,
       "created_at": "2026-07-30T13:58:37.818Z",
       "front_image_position": "50% 50%"
     },
@@ -634,7 +612,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419999061-WhatsApp_Image_2026-07-30_at_16.40.51-0AQwhBxBV7gBDKSpUPdSTPiG9lnBvM.jpeg"
       ],
       "video": null,
-      "sort_order": 28,
+      "sort_order": 27,
       "created_at": "2026-07-30T13:58:38.818Z"
     },
     {
@@ -656,7 +634,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420001424-WhatsApp_Image_2026-07-30_at_16.40.50-36OpSDvBmz6fhDPJnX5psMZy4Y3On4.jpeg"
       ],
       "video": null,
-      "sort_order": 29,
+      "sort_order": 28,
       "created_at": "2026-07-30T13:58:39.818Z"
     },
     {
@@ -678,7 +656,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420002879-WhatsApp_Image_2026-07-30_at_16.40.53__1_-65XSCBqSj6AAn7puupadkGM5xTbZnX.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420005358-WhatsApp_Video_2026-07-30_at_16.40.53-b0WSRiNu0J86VtM08XGHtSr6D080zD.mp4",
-      "sort_order": 30,
+      "sort_order": 29,
       "created_at": "2026-07-30T13:58:40.818Z",
       "front_image_position": "50% 50%"
     },
@@ -701,7 +679,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420009416-WhatsApp_Image_2026-07-30_at_16.40.52-FSsaUSAXzxfcXIOzp0JlOjIfCMtidd.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420010927-WhatsApp_Video_2026-07-30_at_16.40.52-RHmjV1tt9c9n8Q7tEJLMW4L9PkQLQ9.mp4",
-      "sort_order": 31,
+      "sort_order": 30,
       "created_at": "2026-07-30T13:58:41.818Z"
     },
     {
@@ -723,7 +701,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420014850-WhatsApp_Image_2026-07-30_at_16.40.49-72wRuwR6AGjxIGJvh6ky6E54ASe190.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420016106-WhatsApp_Video_2026-07-30_at_16.40.48-sjwga9fzjzrDw52tGo40I8I7oFlYe0.mp4",
-      "sort_order": 32,
+      "sort_order": 31,
       "created_at": "2026-07-30T13:58:42.818Z",
       "front_image_position": "53% 29%"
     },
@@ -744,7 +722,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420031985-WhatsApp_Image_2026-07-30_at_16.31.56-jiM9TGtbpwW5YlJR8jYfXJRNv6wqAX.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420033320-WhatsApp_Video_2026-07-30_at_16.31.57-AMSvNlZAbLskwKR9bKjUK9ASjlQDEH.mp4",
-      "sort_order": 33,
+      "sort_order": 32,
       "created_at": "2026-07-30T13:58:46.818Z"
     },
     {
@@ -766,7 +744,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420036133-WhatsApp_Image_2026-07-30_at_16.31.56__1_-KTvHCTi69ABfjmu8GBdjNs0ephzNmK.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420039340-WhatsApp_Video_2026-07-30_at_16.31.56-RYZKu90g8Qvv675hQ2HQK0hf6T2xVa.mp4",
-      "sort_order": 34,
+      "sort_order": 33,
       "created_at": "2026-07-30T13:58:47.818Z",
       "front_image_position": "50% 50%"
     },
@@ -789,7 +767,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420042431-WhatsApp_Image_2026-07-30_at_16.31.57__1_-q199Z1l9WtjvZpYxtDjlQwbH4QBdVf.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420045877-WhatsApp_Video_2026-07-30_at_16.31.57-ZeNcmxPNpCFZe9z2SRGSQwxfUvOhR6.mp4",
-      "sort_order": 35,
+      "sort_order": 34,
       "created_at": "2026-07-30T13:58:48.818Z",
       "front_image_position": "50% 50%"
     },
@@ -812,7 +790,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420050451-WhatsApp_Image_2026-07-30_at_16.32.00-JgFyYzFzrQ4l9i8dRb6reLIOHUgg2i.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420052093-WhatsApp_Video_2026-07-30_at_16.32.00-AlroXloiYdjpTRKVgzyWwSz92SK6im.mp4",
-      "sort_order": 36,
+      "sort_order": 35,
       "created_at": "2026-07-30T13:58:49.818Z"
     },
     {
@@ -834,7 +812,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420055362-WhatsApp_Image_2026-07-30_at_16.32.00__1_-SGo7vFt88zWCln0f7TOzZeyQsGE1ix.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420058429-WhatsApp_Video_2026-07-30_at_16.32.01-4p6gVicpucPloOeRSOr1pbi5AT1IUn.mp4",
-      "sort_order": 37,
+      "sort_order": 36,
       "created_at": "2026-07-30T13:58:50.818Z",
       "front_image_position": "32% 4%"
     },
@@ -857,7 +835,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420061291-WhatsApp_Image_2026-07-30_at_16.32.02__1_-3zrivQ6irYOQQE8nOj6tDH0tUBaPZg.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420064111-WhatsApp_Video_2026-07-30_at_16.32.02-lVXU19Wvn97UrLSJjGq3yUMjq0zp1T.mp4",
-      "sort_order": 38,
+      "sort_order": 37,
       "created_at": "2026-07-30T13:58:51.818Z",
       "front_image_position": "37% 1%"
     },
@@ -880,7 +858,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420066486-WhatsApp_Image_2026-07-30_at_16.31.57__1_-QNNbCBOwrpFkfaARTIAAbqm9aYp13f.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420069257-WhatsApp_Video_2026-07-30_at_16.31.57-Hsd5LB48ddyHMlRlYj770VjocP6isB.mp4",
-      "sort_order": 39,
+      "sort_order": 38,
       "created_at": "2026-07-30T13:58:52.818Z",
       "front_image_position": "57% 0%"
     },
@@ -901,7 +879,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420081881-WhatsApp_Image_2026-07-30_at_16.27.03-eulLpEvGLWlENNfYlDGwUHflPGUMyg.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420083539-WhatsApp_Video_2026-07-30_at_16.27.03-5ZxIRO922klKJ2Ri2F7mx6Foy4L8Y7.mp4",
-      "sort_order": 40,
+      "sort_order": 39,
       "created_at": "2026-07-30T13:58:55.818Z"
     },
     {
@@ -923,7 +901,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420086023-WhatsApp_Image_2026-07-30_at_16.27.03__1_-gUZdEAJDpKxAuGoK25ad8FR66Jqb7U.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420089521-WhatsApp_Video_2026-07-30_at_16.27.03-A8OjNTNSPSSqkSI6qGerVyNnsYj3mc.mp4",
-      "sort_order": 41,
+      "sort_order": 40,
       "created_at": "2026-07-30T13:58:56.818Z",
       "front_image_position": "51% 0%"
     },
@@ -946,7 +924,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420092185-WhatsApp_Image_2026-07-30_at_16.31.56__1_-lCGr5Xxf82qhDqxvKiOc19Cm0bD1WU.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420094758-WhatsApp_Video_2026-07-30_at_16.31.56-YhL73wnbg7ceJIijn6QaSh5kdm33ux.mp4",
-      "sort_order": 42,
+      "sort_order": 41,
       "created_at": "2026-07-30T13:58:57.818Z",
       "front_image_position": "50% 50%"
     },
@@ -969,7 +947,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420098075-WhatsApp_Image_2026-07-30_at_16.27.02-gbj9NI3K6TqGnfsKk1efZUTivSId5C.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420100955-WhatsApp_Video_2026-07-30_at_16.27.03-aZmzMq8iYboQbRrqFEsidEiQ0LrMtM.mp4",
-      "sort_order": 43,
+      "sort_order": 42,
       "created_at": "2026-07-30T13:58:58.818Z",
       "front_image_position": "67% 0%"
     },
@@ -990,7 +968,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420103744-WhatsApp_Image_2026-07-30_at_16.27.01-ewcgsEq9SWrIJZIuXy2xSoRnjkOXP4.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420105042-WhatsApp_Video_2026-07-30_at_16.27.01-10tFRxbjXWdUpyrWp6QMXbO88d0UiB.mp4",
-      "sort_order": 44,
+      "sort_order": 43,
       "created_at": "2026-07-30T13:58:59.818Z"
     },
     {
@@ -1012,7 +990,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420109637-WhatsApp_Image_2026-07-30_at_16.27.04-2w28q1lqKNFwWwGokS2agnlIDvht4N.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420110971-WhatsApp_Video_2026-07-30_at_16.27.04-KWSSr6oWyhphEkQgxfezOTsp79109j.mp4",
-      "sort_order": 45,
+      "sort_order": 44,
       "created_at": "2026-07-30T13:59:00.818Z",
       "front_image_position": "51% 0%"
     },
@@ -1035,7 +1013,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420114928-WhatsApp_Image_2026-07-30_at_16.31.58-3LUD1dLZwzaZt3Xz70xlrcecsoouCj.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420116370-WhatsApp_Video_2026-07-30_at_16.31.58-llz19SdTa8iF1eWmjyOIE5PqySjixr.mp4",
-      "sort_order": 46,
+      "sort_order": 45,
       "created_at": "2026-07-30T13:59:01.818Z"
     },
     {
@@ -1057,7 +1035,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420120677-WhatsApp_Image_2026-07-30_at_16.27.02-yCOcRg8CDpRBsIzZehXi59egRAuKHa.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420122350-WhatsApp_Video_2026-07-30_at_16.27.02-rE8Hpaa205zk4gJOjkp3BSV9pOgGz9.mp4",
-      "sort_order": 47,
+      "sort_order": 46,
       "created_at": "2026-07-30T13:59:02.818Z"
     },
     {
@@ -1079,7 +1057,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420139747-WhatsApp_Image_2026-07-30_at_00.38.28__1_-OJDARwgNfKOYpaRvAwadbayLKe2oSl.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420142239-WhatsApp_Video_2026-07-30_at_00.38.32-Emc4QKTPQhMSKJ3ixrvd5BAjkNzp73.mp4",
-      "sort_order": 48,
+      "sort_order": 47,
       "created_at": "2026-07-30T13:59:06.818Z",
       "front_image_position": "99% 23%"
     },
@@ -1100,7 +1078,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420159832-WhatsApp_Image_2026-07-30_at_16.18.45-A931z3KovdGKt8fjmXizhLxPXuX9yT.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420161352-WhatsApp_Video_2026-07-30_at_16.18.45-qCH9XhYqm6yiA5VyKMLPcFxLxaMETT.mp4",
-      "sort_order": 49,
+      "sort_order": 48,
       "created_at": "2026-07-30T13:59:10.818Z"
     },
     {
@@ -1122,7 +1100,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420165766-WhatsApp_Image_2026-07-30_at_16.27.04-cE2jerQmZe3FLvKDcH5klSZn2X8ROe.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420167212-WhatsApp_Video_2026-07-30_at_16.27.04-wRXOQZX5NyNcihDonEW9SaoN0ZgOQR.mp4",
-      "sort_order": 50,
+      "sort_order": 49,
       "created_at": "2026-07-30T13:59:11.818Z"
     },
     {
@@ -1144,7 +1122,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420169936-WhatsApp_Image_2026-07-30_at_16.27.02__1_-f2L4IkeR0lLcc4K68GybS8XU9Q7RFo.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420172789-WhatsApp_Video_2026-07-30_at_16.27.02-DEgbolNkTMqkHzaslW4JzjEOPtuh7M.mp4",
-      "sort_order": 51,
+      "sort_order": 50,
       "created_at": "2026-07-30T13:59:12.818Z",
       "front_image_position": "50% 0%"
     },
@@ -1167,7 +1145,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420175907-WhatsApp_Image_2026-07-30_at_16.18.46__1_-hfkiWYJCFJ81aVxHB4c58wLX7wRMhu.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420178620-WhatsApp_Video_2026-07-30_at_16.18.46-BpOKkA0rRTjtXAIdzTFKu7gEHNWBJt.mp4",
-      "sort_order": 52,
+      "sort_order": 51,
       "created_at": "2026-07-30T13:59:13.818Z",
       "front_image_position": "38% 7%"
     },
@@ -1190,7 +1168,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420182658-WhatsApp_Image_2026-07-30_at_16.18.47-8qQYomc4AMzXeFxMMxnLoOkfLWnt6n.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420184337-WhatsApp_Video_2026-07-30_at_16.18.47-IFmXaNGvmOaERjjvL4KZslASOVauHk.mp4",
-      "sort_order": 53,
+      "sort_order": 52,
       "created_at": "2026-07-30T13:59:14.818Z"
     },
     {
@@ -1210,7 +1188,7 @@
       "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420187829-WhatsApp_Image_2026-07-30_at_16.18.47-SXHt5RwmPkEBCdLZOwoKiOOYgb1iYB.jpeg",
       "back_images": [],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420189508-WhatsApp_Video_2026-07-30_at_16.18.47-ZmzybWK31SwlRPivZXiiFOqTZTfq0q.mp4",
-      "sort_order": 54,
+      "sort_order": 53,
       "created_at": "2026-07-30T13:59:15.818Z"
     },
     {
@@ -1232,7 +1210,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420193707-WhatsApp_Image_2026-07-30_at_16.27.02-3ELRkggWWnc4XG72RF9dXrjcvkPrk8.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420195212-WhatsApp_Video_2026-07-30_at_16.27.02-p7LWQBM0m5h5Exo94yRKh1gcct68So.mp4",
-      "sort_order": 55,
+      "sort_order": 54,
       "created_at": "2026-07-30T13:59:16.818Z",
       "front_image_position": "45% 0%"
     },
@@ -1255,9 +1233,31 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420197609-WhatsApp_Image_2026-07-30_at_16.27.04__1_-596smXOfYiwVCCc359WSPVPfLEGieV.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420200645-WhatsApp_Video_2026-07-30_at_16.27.04-LKCRi5GBqZq69ja7Z0MzNvi6SSseBz.mp4",
-      "sort_order": 56,
+      "sort_order": 55,
       "created_at": "2026-07-30T13:59:17.818Z",
       "front_image_position": "54% 0%"
+    },
+    {
+      "id": "prod-ms7kxmyiiiz4",
+      "code": "",
+      "name_tr": "6 LED'li Mini Takoz 12-24V Kırmızı Beyaz Renk",
+      "name_en": "6 LED Mini Wedge 12-24V Red White Color",
+      "name_ar": "6 LED مصباح صغير 12-24V لون أحمر أبيض",
+      "description_tr": "Kompakt tasarımıyla 6 LED'li mini takoz, aracınıza şık bir aydınlatma sağlar.",
+      "description_en": "The compact design of the 6 LED mini wedge provides stylish lighting for your vehicle.",
+      "description_ar": "تصميمه المدمج مع 6 LED يوفر إضاءة أنيقة لمركبتك.",
+      "price": 30,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419935170-WhatsApp_Image_2026-07-30_at_16.32.03__1_-JR16lxzbgqQIxOqad3RoTngKs8cRZ9.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419936473-WhatsApp_Image_2026-07-30_at_16.32.03-vVIUO28ZELjn9nVopnNH2dsIe0jDev.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419938122-WhatsApp_Video_2026-07-30_at_16.32.03-Dv2OsaT4zgyRrGeOIf1bGgtzjLC3Kx.mp4",
+      "sort_order": 56,
+      "created_at": "2026-07-30T13:58:25.818Z"
     },
     {
       "id": "prod-ms7kx67pwojd",
