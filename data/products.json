@@ -996,7 +996,7 @@
       "description_tr": "Küçük boyutuyla her alanda kullanıma uygun, 12-24V sarı renkli sade lamba.",
       "description_en": "A small-sized simple lamp suitable for use in any area, 12-24V yellow color.",
       "description_ar": "مصباح بسيط صغير الحجم مناسب للاستخدام في أي مكان، 12-24 فولت لون أصفر.",
-      "price": null,
+      "price": 100,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
