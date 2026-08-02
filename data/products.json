@@ -186,6 +186,29 @@
       "front_image_position": "100% 8%"
     },
     {
+      "id": "prod-ms7kzlkghcxm",
+      "code": "",
+      "name_tr": "Anahtarlı Tavan Lambası 12-24V Beyaz Renk",
+      "name_en": "Switchable Ceiling Lamp 12-24V White Color",
+      "name_ar": "مصباح سقف مزود بمفتاح 12-24 فولت لون أبيض",
+      "description_tr": "Anahtarlı tavan lambası, 12-24V voltaj aralığında çalışarak aydınlatma ihtiyacınızı karşılar.",
+      "description_en": "The switchable ceiling lamp operates within a voltage range of 12-24V to meet your lighting needs.",
+      "description_ar": "يعمل مصباح السقف المزود بمفتاح ضمن نطاق جهد 12-24 فولت لتلبية احتياجاتك من الإضاءة.",
+      "price": 125,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420027678-WhatsApp_Image_2026-07-30_at_16.31.59-ZxiLOSQTKdhoaObJgBxZnKs7ure5dq.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420026174-WhatsApp_Image_2026-07-30_at_16.31.59__1_-JO8qI7IZJOrB7ubpe2iIfSM8XOmLSY.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420029006-WhatsApp_Video_2026-07-30_at_16.31.59-pvsgUpTn53P4tXoinZfiJCveXuY4GO.mp4",
+      "sort_order": 9,
+      "created_at": "2026-07-30T13:58:45.818Z",
+      "front_image_position": "50% 50%"
+    },
+    {
       "id": "prod-ms7kzh319f5x",
       "code": "",
       "name_tr": "24 LED'li Neon Lamba 12-24V Kırmızı Renk",
@@ -204,7 +227,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420023355-WhatsApp_Image_2026-07-30_at_16.32.00__1_-G6Iz3KU2YkWNMhFQH9lj41vKd217nx.jpeg"
       ],
       "video": null,
-      "sort_order": 9,
+      "sort_order": 10,
       "created_at": "2026-07-30T13:58:44.818Z",
       "front_image_position": "50% 50%"
     },
@@ -227,32 +250,9 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420018230-WhatsApp_Image_2026-07-30_at_16.31.58-SshCka8JCjsNnnm3qsFn1ew6o3hxxB.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420021164-WhatsApp_Video_2026-07-30_at_16.31.59-HVRiAJnDYJbpytGYud19bS5bR9dh2p.mp4",
-      "sort_order": 10,
+      "sort_order": 11,
       "created_at": "2026-07-30T13:58:43.818Z",
       "front_image_position": "82% 0%"
-    },
-    {
-      "id": "prod-ms7kzlkghcxm",
-      "code": "",
-      "name_tr": "Anahtarlı Tavan Lambası 12-24V Beyaz Renk",
-      "name_en": "Switchable Ceiling Lamp 12-24V White Color",
-      "name_ar": "مصباح سقف مزود بمفتاح 12-24 فولت لون أبيض",
-      "description_tr": "Anahtarlı tavan lambası, 12-24V voltaj aralığında çalışarak aydınlatma ihtiyacınızı karşılar.",
-      "description_en": "The switchable ceiling lamp operates within a voltage range of 12-24V to meet your lighting needs.",
-      "description_ar": "يعمل مصباح السقف المزود بمفتاح ضمن نطاق جهد 12-24 فولت لتلبية احتياجاتك من الإضاءة.",
-      "price": 125,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420027678-WhatsApp_Image_2026-07-30_at_16.31.59-ZxiLOSQTKdhoaObJgBxZnKs7ure5dq.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420026174-WhatsApp_Image_2026-07-30_at_16.31.59__1_-JO8qI7IZJOrB7ubpe2iIfSM8XOmLSY.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420029006-WhatsApp_Video_2026-07-30_at_16.31.59-pvsgUpTn53P4tXoinZfiJCveXuY4GO.mp4",
-      "sort_order": 11,
-      "created_at": "2026-07-30T13:58:45.818Z",
-      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7kxafn2c4d",
