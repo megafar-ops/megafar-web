@@ -392,7 +392,7 @@
       "description_tr": "Aracınız için ideal aydınlatma çözümü sunan 9 LED'li parmak lamba.",
       "description_en": "A perfect lighting solution for your vehicle with 9 LED finger lamp.",
       "description_ar": "حل إضاءة مثالي لسيارتك مع مصباح إصبع LED 9.",
-      "price": null,
+      "price": 20,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
