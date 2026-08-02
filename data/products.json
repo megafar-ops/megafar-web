@@ -107,14 +107,15 @@
       "accent": "white",
       "is_new": false,
       "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420071852-WhatsApp_Image_2026-07-30_at_16.18.45__1_-GTY0hz3dNbEt6O66vahJ27PxJyxyqU.jpeg",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420075155-WhatsApp_Image_2026-07-30_at_16.18.45-rLZGA78AZnFSccTZlRZAnihTIcZ0aV.jpeg",
       "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420073219-WhatsApp_Image_2026-07-30_at_16.18.45__2_-oC2kOX2bGGJmbdvAW3siCQu6CPEhSg.jpeg",
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420075155-WhatsApp_Image_2026-07-30_at_16.18.45-rLZGA78AZnFSccTZlRZAnihTIcZ0aV.jpeg"
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420071852-WhatsApp_Image_2026-07-30_at_16.18.45__1_-GTY0hz3dNbEt6O66vahJ27PxJyxyqU.jpeg",
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420073219-WhatsApp_Image_2026-07-30_at_16.18.45__2_-oC2kOX2bGGJmbdvAW3siCQu6CPEhSg.jpeg"
       ],
       "video": null,
       "sort_order": 5,
-      "created_at": "2026-07-30T13:58:53.818Z"
+      "created_at": "2026-07-30T13:58:53.818Z",
+      "front_image_position": "50% 50%"
     },
     {
       "id": "prod-ms7l0o2g27p8",
