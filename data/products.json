@@ -974,7 +974,7 @@
       "description_tr": "Küçük boyutuyla her alanda kullanıma uygun mavi renkli sade lamba.",
       "description_en": "A small-sized simple lamp in blue color, suitable for use in any area.",
       "description_ar": "مصباح بسيط صغير باللون الأزرق، مناسب للاستخدام في أي مكان.",
-      "price": null,
+      "price": 100,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
