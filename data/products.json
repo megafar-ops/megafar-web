@@ -931,7 +931,7 @@
       "description_tr": "Küçük boyutuyla her alanda kullanıma uygun beyaz lamba.",
       "description_en": "A white lamp suitable for use in any area with its small size.",
       "description_ar": "مصباح أبيض مناسب للاستخدام في أي منطقة بحجمه الصغير.",
-      "price": null,
+      "price": 100,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
