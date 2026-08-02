@@ -186,29 +186,6 @@
       "front_image_position": "100% 8%"
     },
     {
-      "id": "prod-ms7kxafn2c4d",
-      "code": "",
-      "name_tr": "6 LED'li Parmak Lamba 12-24V Beyaz Renk",
-      "name_en": "6 LED Finger Lamp 12-24V White Color",
-      "name_ar": "مصباح إصبع LED 6 12-24 فولت لون أبيض",
-      "description_tr": "Yüksek kaliteli 6 LED'li parmak lambamız, 12-24V voltaj aralığında çalışarak mükemmel aydınlatma sağlar.",
-      "description_en": "Our high-quality 6 LED finger lamp provides excellent illumination, operating within a voltage range of 12-24V.",
-      "description_ar": "يوفر مصباح الإصبع LED 6 عالي الجودة إضاءة ممتازة، ويعمل ضمن نطاق جهد 12-24 فولت.",
-      "price": 25,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419920001-WhatsApp_Image_2026-07-30_at_00.31.43-brYqI7LLMTF4yhdtxWaBzKjMEiNt68.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419918777-WhatsApp_Image_2026-07-30_at_00.31.4-Uztlodqp8lJz6dqMyJhTzUCndCF6Wu.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419921432-WhatsApp_Video_2026-07-30_at_00.31.49-Sh6Zf3K1OGWW0LLgjYC5L7xqgpSGPj.mp4",
-      "sort_order": 9,
-      "created_at": "2026-07-30T13:58:22.818Z",
-      "front_image_position": "50% 50%"
-    },
-    {
       "id": "prod-ms7kzh319f5x",
       "code": "",
       "name_tr": "24 LED'li Neon Lamba 12-24V Kırmızı Renk",
@@ -227,7 +204,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420023355-WhatsApp_Image_2026-07-30_at_16.32.00__1_-G6Iz3KU2YkWNMhFQH9lj41vKd217nx.jpeg"
       ],
       "video": null,
-      "sort_order": 10,
+      "sort_order": 9,
       "created_at": "2026-07-30T13:58:44.818Z",
       "front_image_position": "50% 50%"
     },
@@ -250,7 +227,7 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420018230-WhatsApp_Image_2026-07-30_at_16.31.58-SshCka8JCjsNnnm3qsFn1ew6o3hxxB.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420021164-WhatsApp_Video_2026-07-30_at_16.31.59-HVRiAJnDYJbpytGYud19bS5bR9dh2p.mp4",
-      "sort_order": 11,
+      "sort_order": 10,
       "created_at": "2026-07-30T13:58:43.818Z",
       "front_image_position": "82% 0%"
     },
@@ -273,8 +250,31 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420026174-WhatsApp_Image_2026-07-30_at_16.31.59__1_-JO8qI7IZJOrB7ubpe2iIfSM8XOmLSY.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420029006-WhatsApp_Video_2026-07-30_at_16.31.59-pvsgUpTn53P4tXoinZfiJCveXuY4GO.mp4",
-      "sort_order": 12,
+      "sort_order": 11,
       "created_at": "2026-07-30T13:58:45.818Z",
+      "front_image_position": "50% 50%"
+    },
+    {
+      "id": "prod-ms7kxafn2c4d",
+      "code": "",
+      "name_tr": "6 LED'li Parmak Lamba 12-24V Beyaz Renk",
+      "name_en": "6 LED Finger Lamp 12-24V White Color",
+      "name_ar": "مصباح إصبع LED 6 12-24 فولت لون أبيض",
+      "description_tr": "Yüksek kaliteli 6 LED'li parmak lambamız, 12-24V voltaj aralığında çalışarak mükemmel aydınlatma sağlar.",
+      "description_en": "Our high-quality 6 LED finger lamp provides excellent illumination, operating within a voltage range of 12-24V.",
+      "description_ar": "يوفر مصباح الإصبع LED 6 عالي الجودة إضاءة ممتازة، ويعمل ضمن نطاق جهد 12-24 فولت.",
+      "price": 25,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419920001-WhatsApp_Image_2026-07-30_at_00.31.43-brYqI7LLMTF4yhdtxWaBzKjMEiNt68.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419918777-WhatsApp_Image_2026-07-30_at_00.31.4-Uztlodqp8lJz6dqMyJhTzUCndCF6Wu.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419921432-WhatsApp_Video_2026-07-30_at_00.31.49-Sh6Zf3K1OGWW0LLgjYC5L7xqgpSGPj.mp4",
+      "sort_order": 12,
+      "created_at": "2026-07-30T13:58:22.818Z",
       "front_image_position": "50% 50%"
     },
     {
