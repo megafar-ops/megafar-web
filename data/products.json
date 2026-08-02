@@ -988,28 +988,6 @@
       "created_at": "2026-07-30T13:59:01.818Z"
     },
     {
-      "id": "prod-ms7l1l9q15qq",
-      "code": "",
-      "name_tr": "Küçük Boy Sade Lamba 12-24V Sarı Renk",
-      "name_en": "Small Simple Lamp 12-24V Yellow Color",
-      "name_ar": "مصباح بسيط صغير 12-24 فولت لون أصفر",
-      "description_tr": "Küçük boyutuyla her alanda kullanıma uygun, 12-24V sarı renkli sade lamba.",
-      "description_en": "A small-sized simple lamp suitable for use in any area, 12-24V yellow color.",
-      "description_ar": "مصباح بسيط صغير الحجم مناسب للاستخدام في أي مكان، 12-24 فولت لون أصفر.",
-      "price": 100,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420119298-WhatsApp_Image_2026-07-30_at_16.27.01-4KiXkHyZDkTUtZiPyZzNCr1yqmtuZD.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420120677-WhatsApp_Image_2026-07-30_at_16.27.02-yCOcRg8CDpRBsIzZehXi59egRAuKHa.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420122350-WhatsApp_Video_2026-07-30_at_16.27.02-rE8Hpaa205zk4gJOjkp3BSV9pOgGz9.mp4",
-      "sort_order": 45,
-      "created_at": "2026-07-30T13:59:02.818Z"
-    },
-    {
       "id": "prod-ms7l1p8enp14",
       "code": "",
       "name_tr": "Orta Boy Boynuz Lamba Sarı Kırmızı",
@@ -1029,8 +1007,30 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420128228-WhatsApp_Image_2026-07-30_at_16.18.47-kiL162GiJnRarT0UiLzw1hmgbLxvwQ.jpeg"
       ],
       "video": null,
-      "sort_order": 46,
+      "sort_order": 45,
       "created_at": "2026-07-30T13:59:03.818Z"
+    },
+    {
+      "id": "prod-ms7l1l9q15qq",
+      "code": "",
+      "name_tr": "Küçük Boy Sade Lamba 12-24V Sarı Renk",
+      "name_en": "Small Simple Lamp 12-24V Yellow Color",
+      "name_ar": "مصباح بسيط صغير 12-24 فولت لون أصفر",
+      "description_tr": "Küçük boyutuyla her alanda kullanıma uygun, 12-24V sarı renkli sade lamba.",
+      "description_en": "A small-sized simple lamp suitable for use in any area, 12-24V yellow color.",
+      "description_ar": "مصباح بسيط صغير الحجم مناسب للاستخدام في أي مكان، 12-24 فولت لون أصفر.",
+      "price": 100,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420119298-WhatsApp_Image_2026-07-30_at_16.27.01-4KiXkHyZDkTUtZiPyZzNCr1yqmtuZD.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420120677-WhatsApp_Image_2026-07-30_at_16.27.02-yCOcRg8CDpRBsIzZehXi59egRAuKHa.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420122350-WhatsApp_Video_2026-07-30_at_16.27.02-rE8Hpaa205zk4gJOjkp3BSV9pOgGz9.mp4",
+      "sort_order": 46,
+      "created_at": "2026-07-30T13:59:02.818Z"
     },
     {
       "id": "prod-ms7l1shghk5h",
