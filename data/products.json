@@ -209,29 +209,6 @@
       "front_image_position": "50% 50%"
     },
     {
-      "id": "prod-ms7kzewp3u5a",
-      "code": "",
-      "name_tr": "24 LED'li Neon Lamba 12-24V Sarı Renk",
-      "name_en": "24 LED Neon Lamp 12-24V Yellow Color",
-      "name_ar": "مصباح نيون 24 LED 12-24 فولت لون أصفر",
-      "description_tr": "Yüksek kaliteli 24 LED'li neon lamba, 12-24V voltaj aralığında mükemmel aydınlatma sağlar.",
-      "description_en": "High-quality 24 LED neon lamp provides excellent lighting in the 12-24V voltage range.",
-      "description_ar": "يوفر مصباح النيون عالي الجودة 24 LED إضاءة ممتازة في نطاق جهد 12-24 فولت.",
-      "price": 75,
-      "currency": "TRY",
-      "accent": "white",
-      "is_new": false,
-      "tag": "",
-      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420019621-WhatsApp_Image_2026-07-30_at_16.31.59-p2AoxuuigpYA3C1dT5nX4XjE8J5r7z.jpeg",
-      "back_images": [
-        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420018230-WhatsApp_Image_2026-07-30_at_16.31.58-SshCka8JCjsNnnm3qsFn1ew6o3hxxB.jpeg"
-      ],
-      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420021164-WhatsApp_Video_2026-07-30_at_16.31.59-HVRiAJnDYJbpytGYud19bS5bR9dh2p.mp4",
-      "sort_order": 10,
-      "created_at": "2026-07-30T13:58:43.818Z",
-      "front_image_position": "82% 0%"
-    },
-    {
       "id": "prod-ms7kxafn2c4d",
       "code": "",
       "name_tr": "6 LED'li Parmak Lamba 12-24V Beyaz Renk",
@@ -250,9 +227,32 @@
         "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419918777-WhatsApp_Image_2026-07-30_at_00.31.4-Uztlodqp8lJz6dqMyJhTzUCndCF6Wu.jpeg"
       ],
       "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785419921432-WhatsApp_Video_2026-07-30_at_00.31.49-Sh6Zf3K1OGWW0LLgjYC5L7xqgpSGPj.mp4",
-      "sort_order": 11,
+      "sort_order": 10,
       "created_at": "2026-07-30T13:58:22.818Z",
       "front_image_position": "50% 50%"
+    },
+    {
+      "id": "prod-ms7kzewp3u5a",
+      "code": "",
+      "name_tr": "24 LED'li Neon Lamba 12-24V Sarı Renk",
+      "name_en": "24 LED Neon Lamp 12-24V Yellow Color",
+      "name_ar": "مصباح نيون 24 LED 12-24 فولت لون أصفر",
+      "description_tr": "Yüksek kaliteli 24 LED'li neon lamba, 12-24V voltaj aralığında mükemmel aydınlatma sağlar.",
+      "description_en": "High-quality 24 LED neon lamp provides excellent lighting in the 12-24V voltage range.",
+      "description_ar": "يوفر مصباح النيون عالي الجودة 24 LED إضاءة ممتازة في نطاق جهد 12-24 فولت.",
+      "price": 75,
+      "currency": "TRY",
+      "accent": "white",
+      "is_new": false,
+      "tag": "",
+      "front_image": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420019621-WhatsApp_Image_2026-07-30_at_16.31.59-p2AoxuuigpYA3C1dT5nX4XjE8J5r7z.jpeg",
+      "back_images": [
+        "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420018230-WhatsApp_Image_2026-07-30_at_16.31.58-SshCka8JCjsNnnm3qsFn1ew6o3hxxB.jpeg"
+      ],
+      "video": "https://vaqvlixpqpq8fndn.public.blob.vercel-storage.com/products/1785420021164-WhatsApp_Video_2026-07-30_at_16.31.59-HVRiAJnDYJbpytGYud19bS5bR9dh2p.mp4",
+      "sort_order": 11,
+      "created_at": "2026-07-30T13:58:43.818Z",
+      "front_image_position": "82% 0%"
     },
     {
       "id": "prod-ms7kzlkghcxm",
