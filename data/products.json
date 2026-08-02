@@ -525,7 +525,7 @@
       "description_tr": "Aracınız için mükemmel aydınlatma sağlayan 9 LED'li tombul lamba.",
       "description_en": "A perfect lighting solution for your vehicle with 9 LED bulbs.",
       "description_ar": "حل إضاءة مثالي لسيارتك مع 9 مصابيح LED.",
-      "price": null,
+      "price": 25,
       "currency": "TRY",
       "accent": "white",
       "is_new": false,
